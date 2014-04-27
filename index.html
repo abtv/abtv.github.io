@@ -99,14 +99,14 @@ in command line</br>
 </br>
 
 <h3>Issue 6: Setting up mongodb</h3>
-1. Import the public key used by the package management system
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code></pre>
-2. Create a list file for MongoDB
-<pre><code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'</br> | sudo tee /etc/apt/sources.list.d/mongodb.list</code><pre>
-3. Reload local package database
-<pre><code>sudo apt-get update</code></pre>
-4. Install the MongoDb packages
-<pre><code>sudo apt-get install mongodb-org</code></pre>
+1. Import the public key used by the package management system</br>
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</br>
+2. Create a list file for MongoDB</br>
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</br>
+3. Reload local package database</br>
+sudo apt-get update</br>
+4. Install the MongoDb packages</br>
+sudo apt-get install mongodb-org</br>
 </br>
 </br>
 
@@ -187,5 +187,5 @@ and insert line "exec zsh" without quotes</br>
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 </code></pre>
 <p>	
-All you need is simply restart terminal
+All you need issues simply restart terminal
 </p>
