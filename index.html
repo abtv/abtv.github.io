@@ -68,8 +68,39 @@ Selection commands:</br>
 <h3>Issue 5: Using NoSQL solutions for storing and retrieving data from crawled sites</h3>
 
 <h3>Issue 4: Simple article model for classification</h3>
+First, let's define a simple class, which represents news or scientific article 
+<pre><code>class Article(val url, val title, val text)
+</code></pre>
+Now we need to define a simple classificator
+<pre><code>
+class Theme(val name:string, val keyPhrases:List[string])
+class Classificator(val themes:List[Theme])
+</code></pre>
+Obviously, we need a mapper to perform mapping article on set of themes
+<pre><code>
+class Classification(val classificator){
+  def Classify(val article: Article) = {
+    //classification's calculations
+  }
+}
+</code></pre>
+and we need a class to store classifiction results
+<pre><code>class Weight(val theme:String, val weight:Double)
+</code></pre>
+Let's extend our Article class to
+<pre><code>class Article(val url, val title, val text){
+
+}
+</code></pre>
+
 
 <h3>Issue 3: Setting up scala build tools</h3>
+1. Download sbt from here: http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.4/sbt.tgz</br>
+2. Unpack the archive to a directory /home/andrew/programs/sbt/</br>
+3. Add the bin/ directory to the PATH environment variable. Open the file ~/.bashrc (or .zshrc if you use zsh) in an editor (create it if it doesn’t exist) and add the following line export PATH=/home/andrew/programs/sbt/bin:$PATH</br>
+4. Verify that sbt is installed correctly: Open a new terminal (to apply the changed .bashrc or .zshrc) and type sbt -h, you should see a help message from sbt. If you have problems installing sbt, ask for help on the forums.</br>
+</br>
+Problem: on my ubuntu 14.04 sbt from zsh not work, but work on ubuntu 13.10
 
 </br>
 </br>
