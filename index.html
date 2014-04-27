@@ -31,6 +31,33 @@
 </br>
 </br>
 27.04.2014
+
+
+<h3>Issue 9: Adding mongodb support to scala project</h3>
+Append to your's pom file
+<pre><code>
+<dependency>
+  <groupId> org.mongodb</groupId>
+  <artifactId>casbah_2.10</artifactId>
+  <version>2.7.0</version>
+  <type>pom</type>
+</dependency>
+</code></pre>
+
+<h3>Issue 8: Setting up mongodb</h3>
+1. Import the public key used by the package management system
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+</pre></code>
+2. Create a list file for MongoDB
+
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+
+3. 
+
+
+
+
+
 <h3>Issue 7: Speed up your work with git: adorable aliases can simplify typing</h3>
 Execute
 <pre><code>vim .bashrc</code></pre>
@@ -65,9 +92,9 @@ Selection commands:</br>
 
 
 
-<h3>Issue 5: Using NoSQL solutions for storing and retrieving data from crawled sites</h3>
+<h3>Issue 5: Using NoSQL solution for storing and retrieving data from crawled sites</h3>
 
-<h3>Issue 4: Simple article model for classification</h3>
+<h3>Issue 4: Simple model for the classification of articles</h3>
 First, let's define a simple class, which represents news or scientific article 
 <pre><code>class Article(val url, val title, val text)
 </code></pre>
