@@ -81,15 +81,14 @@ Append to your's pom file
 
 <h3>Issue 7: Configuring mongodb</h3>
 1. Start mongodb</br>
-sudo /etc/init.d/mongod start</br>
-2. Verifiing that mongodb started successfully</br>
-vim /var/log/mongodb/mongod.log</br>
+<pre><code>sudo /etc/init.d/mongod start</code></pre>
+2. Verifing that mongodb started successfully</br>
+<pre><code>vim /var/log/mongodb/mongod.log</code></pre>
 3. Stop mongodb</br>
-sudo /etc/init.d/mongod stop</br>
-</br>
+<pre><code>sudo /etc/init.d/mongod stop</code></pre>
 4. to connect to mongodb type</br>
-mongo</br>
-in command line</br>
+<pre><code>mongo</code></pre>
+in terminal</br>
 5. show dbs - show all databases (in mongo console)</br>
 6. db - shows current database</br>
 7. use adb - creates database with name adb and switches to adb database</br>
@@ -97,18 +96,16 @@ in command line</br>
 </br>
 
 <h3>Issue 6: Setting up mongodb</h3>
-1. Import the public key used by the package management system</br>
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</br>
-2. Create a list file for MongoDB</br>
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</br>
-3. Reload local package database</br>
-sudo apt-get update</br>
-4. Install the MongoDb packages</br>
-sudo apt-get install mongodb-org</br>
+1. Import the public key used by the package management system
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code></pre>
+2. Create a list file for MongoDB
+<pre><code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</code></pre>
+3. Reload local package database
+<pre><code>sudo apt-get update</code></pre>
+4. Install the MongoDb packages
+<pre><code>sudo apt-get install mongodb-org</code></pre>
 </br>
 </br>
-
-
 
 <h3>Issue 5: Speed up your work with git: adorable aliases can simplify typing</h3>
 Execute
@@ -187,3 +184,5 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 <p>	
 All you need issues simply restart terminal
 </p>
+
+<pre><code></code></pre>
