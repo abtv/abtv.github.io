@@ -33,63 +33,6 @@
 27.04.2014
 
 
-<h3>Issue 9: Adding mongodb support to scala project</h3>
-Append to your's pom file
-<pre><code>
-<dependency>
-  <groupId> org.mongodb</groupId>
-  <artifactId>casbah_2.10</artifactId>
-  <version>2.7.0</version>
-  <type>pom</type>
-</dependency>
-</code></pre>
-
-<h3>Issue 8: Setting up mongodb</h3>
-1. Import the public key used by the package management system
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-</pre></code>
-2. Create a list file for MongoDB
-
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-
-3. 
-
-
-
-
-
-<h3>Issue 7: Speed up your work with git: adorable aliases can simplify typing</h3>
-Execute
-<pre><code>vim .bashrc</code></pre>
-or (if you use zsh)
-<pre><code>vim .zshrc</code></pre>
-<p>
-and type</br>
-
-#git aliases</br>
-alias ga="git add "</br>
-alias gb="git branch "</br>
-alias gca="git commit -a -m "</br>
-alias gch="git checkout "</br>
-alias gd="git diff "</br>
-alias gl="git log "</br>
-alias gpl="git pull "</br>
-alias gps="git push "</br>
-alias gs="git status "
-</p>
-
-<h3>Issue 6: Using vim to copy and paste text</h3>
-Simple commands:</br>
-  1. Type yy to copy single line</br>
-  2. Type p to paste text from clipboard</br>
-  3. Type dd to delete single line (and copy it to clipboard)</br>
-  4. Type u to undo last change</br>
-  5. Press Ctrl+R to undo "undo change"</br>
-</br>
-Selection commands:</br>
-  1. First press Shift+V to select lines and then press y to copy it all</br>
-  2. Then press p to insert selected lines 
-
 
 
 <h3>Issue 5: Using NoSQL solution for storing and retrieving data from crawled sites</h3>
@@ -119,6 +62,86 @@ Let's extend our Article class to
 
 }
 </code></pre>
+
+
+<h3>Issue 8: Adding mongodb support to scala project</h3>
+Append to your's pom file
+<pre><code>
+<dependency>
+  <groupId> org.mongodb</groupId>
+  <artifactId>casbah_2.10</artifactId>
+  <version>2.7.0</version>
+  <type>pom</type>
+</dependency>
+</code></pre>
+</br>
+</br>
+
+<h3>Issue 7: Configuring mongodb</h3>
+1. Start mongodb</br>
+sudo /etc/init.d/mongod start</br>
+2. Verifiing that mongodb started successfully</br>
+vim /var/log/mongodb/mongod.log</br>
+3. Stop mongodb</br>
+sudo /etc/init.d/mongod stop</br>
+</br>
+4. to connect to mongodb type</br>
+mongo</br>
+in command line</br>
+5. show dbs - show all databases (in mongo console)</br>
+6. db - shows current database</br>
+7. use adb - creates database with name adb and switches to adb database</br>
+</br>
+</br>
+
+<h3>Issue 6: Setting up mongodb</h3>
+1. Import the public key used by the package management system
+<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code></pre>
+2. Create a list file for MongoDB
+<pre><code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen'</br> | sudo tee /etc/apt/sources.list.d/mongodb.list</code><pre>
+3. Reload local package database
+<pre><code>sudo apt-get update</code></pre>
+4. Install the MongoDb packages
+<pre><code>sudo apt-get install mongodb-org</code></pre>
+</br>
+</br>
+
+
+
+<h3>Issue 5: Speed up your work with git: adorable aliases can simplify typing</h3>
+Execute
+<pre><code>vim .bashrc</code></pre>
+or (if you use zsh)
+<pre><code>vim .zshrc</code></pre>
+<p>
+and type</br>
+
+#git aliases</br>
+alias ga="git add "</br>
+alias gb="git branch "</br>
+alias gca="git commit -a -m "</br>
+alias gch="git checkout "</br>
+alias gd="git diff "</br>
+alias gl="git log "</br>
+alias gpl="git pull "</br>
+alias gps="git push "</br>
+alias gs="git status "
+</p>
+</br>
+</br>
+
+
+<h3>Issue 4: Using vim to copy and paste text</h3>
+Simple commands:</br>
+  1. Type yy to copy single line</br>
+  2. Type p to paste text from clipboard</br>
+  3. Type dd to delete single line (and copy it to clipboard)</br>
+  4. Type u to undo last change</br>
+  5. Press Ctrl+R to undo "undo change"</br>
+</br>
+Selection commands:</br>
+  1. First press Shift+V to select lines and then press y to copy it all</br>
+  2. Then press p to insert selected lines 
 
 
 <h3>Issue 3: Setting up scala build tools</h3>
