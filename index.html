@@ -17,7 +17,7 @@
     <div id="header_wrap" class="outer">
         <header class="inner">
           <h1 id="project_title">abtv</h1>
-          <h2 id="project_tagline">My notepad - succinct issues, thoughts and solutions</h2>
+          <h2 id="project_tagline">My notepad - succinct issues and solutions</h2>
         </header>
     </div>
 
@@ -31,8 +31,12 @@
 </br>
 </br>
 
-28.04.2014
-<h3>Issue 11: Using MongoDB for storing and retrieving data from crawled sites</h3>
+29.04.2014
+<h3>Issue 10: Using MongoDB for storing and retrieving data</h3>
+use pagesdb - switch to specified database</br>
+db.pages.count() - shows total records in collection pages</br>
+db.pages.find() - shows all records in collection pages</br>
+db.pages.remove({}) - removes all from collection pages
 
 
 </br>
@@ -40,38 +44,10 @@
 
 
 27.04.2014
-<h3>Issue 10: Setting up Scala IDE for Eclipse</h3>
+<h3>Issue 9: Setting up Scala IDE for Eclipse</h3>
 1. Open http://scala-ide.org/download/sdk.html and select Linux GTK 64-bit</br>
 2. Extract archive to /home/andrew/programs/eclipse</br>
 3. Double click on file eclipse
-</br>
-</br>
-
-<h3>Issue 9: Simple model for the classification of articles</h3>
-First, let's define a simple class, which represents news or scientific article 
-<pre><code>class Article(val url, val title, val text)
-</code></pre>
-Now we need to define a simple classificator
-<pre><code>
-class Theme(val name:string, val keyPhrases:List[string])
-class Classificator(val themes:List[Theme])
-</code></pre>
-Obviously, we need a mapper to perform mapping article on set of themes
-<pre><code>
-class Classification(val classificator){
-  def Classify(val article: Article) = {
-    //classification's calculations
-  }
-}
-</code></pre>
-and we need a class to store classifiction results
-<pre><code>class Weight(val theme:String, val weight:Double)
-</code></pre>
-Let's extend our Article class to
-<pre><code>class Article(val url, val title, val text){
-
-}
-</code></pre>
 </br>
 </br>
 
