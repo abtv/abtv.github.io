@@ -32,6 +32,15 @@
 </br>
 
 02.05.2014
+<h3>Issue 13: Sql's analogs in mongo</h3>
+db.pages.find({}, {url: 1, themes: 1})</br>
+db.pages.find({url: "http://someurl.com"}, {url: 1, themes: 1})</br>
+db.pages.remove({url: "http://someurl.com"})</br>
+db.users.ensureIndex( { url: 1, title: -1 } ) - creates index with url by ascending and title by descending</br>
+<a href="http://docs.mongodb.org/manual/reference/sql-comparison/">See more info on official site</a>
+</br>
+</br>
+
 <h3>Issue 12: Git's problem</h3>
 Problem:</br>
 updates were rejected because a pushed branch tip is behind its remote counterpart.
@@ -39,8 +48,6 @@ Checkout this branch and integrate remote changes (e.g. git pull ...) before pus
 Solution:</br>
 Check your commit. If it isn't master, then checkout master and pull changes into master.</br>
 Merege master with your previous commit, resolve conflicts and push changes.
-
-
 </br>
 </br>
 
