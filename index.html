@@ -26,183 +26,34 @@
       <section id="main_content" class="inner">
         
   
+	    <a href="index1.html">Go to Mongo & Git week</a>
 
-</br>
-</br>
-</br>
+		</br>
+		</br>
+		</br>
 
-<h2>Mongo week</h2>
+		<h2>Scala week</h2>
 
-02.05.2014
-<h3>Issue 13: Sql's analogs in mongo</h3>
-db.pages.find({}, {url: 1, themes: 1})</br>
-db.pages.find({url: "http://someurl.com"}, {url: 1, themes: 1})</br>
-db.pages.remove({url: "http://someurl.com"})</br>
-db.users.ensureIndex( { url: 1, title: -1 } ) - creates index with url by ascending and title by descending</br>
-<a href="http://docs.mongodb.org/manual/reference/sql-comparison/">See more info on official site</a>
-</br>
-</br>
-
-<h3>Issue 12: Git's problem</h3>
-Problem:</br>
-updates were rejected because a pushed branch tip is behind its remote counterpart.
-Checkout this branch and integrate remote changes (e.g. git pull ...) before pushing again</br>
-Solution:</br>
-Check your commit. If it isn't master, then checkout master and pull changes into master.</br>
-Merege master with your previous commit, resolve conflicts and push changes.
-</br>
-</br>
-
-30.04.2014
-<h3>Issue 11: Some dpkg and vim</h3>
-dpkg -l | grep scala - searchs all packages, which names contains scala</br>
-sudo dpkg -i robomongo.deb - install robomongo</br>
-sudo dpkg -r robomongo</br>
-la | vim -   minus enables read from stdin
-
-</br>
-</br>
-
-29.04.2014
-<h3>Issue 10: Using MongoDB for storing and retrieving data</h3>
-use pagesdb - switch to specified database</br>
-db.version() - shows current version mongodb</br>
-db.stats() - shows current database's statistics</br>
-db.items.insert({name: "andrew", age: 30}) - inserts object in collection "items". If the collection does not exist, then the insert() method will create the collection.</br>
-db.pages.count() - shows total records in collection pages</br>
-db.pages.find() - shows all records in collection pages</br>
-db.items.find({age: {$gt: 29}}) - search with filter</br>
-db.pages.remove({}) - removes all from collection pages
+		04.05.2014
+		<h3>Issue 15: Scala range</h3>
+		for(x <- (1 to 100)){</br>
+      	  &nbsp;&nbsp;//x changes from 1 to 100 inclusive (for exclusive upper bound use 1 until 100)</br>
+    	}
+    	</br>
+    	</br>
 
 
-</br>
-</br>
 
+		<h3>Issue 14: Scala secondary constructor</h3>
+		class Page(val url: String, val title: String, val text: String, val themes: Array[String]) {</br>
+		  &nbsp;&nbsp;def this(page: Page) = this(page.url, page.title, page.text, page.themes)//secondary ctr</br>
+		  &nbsp;&nbsp;override def toString() = url</br>
+		}
 
-27.04.2014
-<h3>Issue 9: Setting up Scala IDE for Eclipse</h3>
-1. Open http://scala-ide.org/download/sdk.html and select Linux GTK 64-bit</br>
-2. Extract archive to /home/andrew/programs/eclipse</br>
-3. Double click on file eclipse
-</br>
-</br>
+		</br>
+		</br>
 
-
-<h3>Issue 8: Adding mongodb support to scala project</h3>
-Append to your's pom file
-<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
-  &lt;artifactId&gt;casbah_2.10&lt;/artifactId&gt;
-  &lt;version&gt;2.7.0&lt;/version&gt;
-  &lt;type&gt;pom&lt;/type&gt;
-&lt;/dependency&gt;</code></pre>
-</br>
-</br>
-
-<h3>Issue 7: Configuring mongodb</h3>
-1. Start mongodb</br>
-<pre><code>sudo /etc/init.d/mongod start</code></pre>
-2. Verifing that mongodb started successfully</br>
-<pre><code>vim /var/log/mongodb/mongod.log</code></pre>
-3. Stop mongodb</br>
-<pre><code>sudo /etc/init.d/mongod stop</code></pre>
-4. to connect to mongodb type</br>
-<pre><code>mongo</code></pre>
-in terminal</br>
-5. show dbs - show all databases (in mongo console)</br>
-6. db - shows current database</br>
-7. use adb - creates database with name adb and switches to adb database</br>
-</br>
-</br>
-
-<h3>Issue 6: Setting up mongodb</h3>
-1. Import the public key used by the package management system
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code></pre>
-2. Create a list file for MongoDB
-<pre><code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</code></pre>
-3. Reload local package database
-<pre><code>sudo apt-get update</code></pre>
-4. Install the MongoDb packages
-<pre><code>sudo apt-get install mongodb-org</code></pre>
-</br>
-</br>
-
-<h3>Issue 5: Speed up your work with git: adorable aliases can simplify typing</h3>
-Execute
-<pre><code>vim .bashrc</code></pre>
-or (if you use zsh)
-<pre><code>vim .zshrc</code></pre>
-<p>
-and type</br>
-
-#git aliases</br>
-alias ga="git add "</br>
-alias gb="git branch "</br>
-alias gca="git commit -a -m "</br>
-alias gch="git checkout "</br>
-alias gd="git diff "</br>
-alias gl="git log "</br>
-alias gpl="git pull "</br>
-alias gps="git push "</br>
-alias gs="git status "
-</p>
-</br>
-
-<h3>Issue 4: Using vim to copy and paste text</h3>
-Simple commands:</br>
-  1. Type yy to copy single line</br>
-  2. Type p to paste text from clipboard</br>
-  3. Type dd to delete single line (and copy it to clipboard)</br>
-  4. Type u to undo last change</br>
-  5. Press Ctrl+R to undo "undo change"</br>
-</br>
-Selection commands:</br>
-  1. First press Shift+V to select lines and then press y to copy it all</br>
-  2. Then press p to insert selected lines 
-</br>
-</br>
-
-
-<h3>Issue 3: Setting up scala build tools</h3>
-1. Download sbt from here: http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.4/sbt.tgz</br>
-2. Unpack the archive to a directory /home/andrew/programs/sbt/</br>
-3. Add the bin/ directory to the PATH environment variable. Open the file ~/.bashrc (or .zshrc if you use zsh) in an editor (create it if it doesn’t exist) and add the following line export PATH=/home/andrew/programs/sbt/bin:$PATH</br>
-4. Verify that sbt is installed correctly: Open a new terminal (to apply the changed .bashrc or .zshrc) and type sbt -h, you should see a help message from sbt. If you have problems installing sbt, ask for help on the forums.</br>
-</br>
-Problem: on my ubuntu 14.04 sbt from zsh not work, but work on ubuntu 13.10
-
-</br>
-</br>
-</br>
-26.04.2014
-
-<h3>Issue 2: New repo was created</h3>
-<pre><code>git clone https://github.com/abtv/abtv.github.io.git
-vim index.html
-git add index.html
-git commit -a -m "page was created"
-git remote add origin https://github.com/abtv/abtv.github.io.git
-git push -u origin master
-</code></pre>
-</br>
-</br>
-
-<h3>
-Issue 1: Setting up Oh my zsh
-</h3>
-<pre><code>sudo apt-get install zsh
-</code></pre>
-<p>	
-Type and run 
-<pre><code>vim ~.bashrc
-</code></pre>
-and insert line "exec zsh" without quotes</br>
-</p>
-<pre><code>sudo shutdown -r now
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-</code></pre>
-<p>	
-All you need issues simply restart terminal
-</p>
-
-<pre><code></code></pre>
+	  </section>
+	</div>
+  </body>
+</html>
