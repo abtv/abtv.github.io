@@ -34,6 +34,31 @@
 
 		<h2>Scala week</h2>
 
+		05.05.2014
+		<h3>Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
+
+		class Theme(val name: String, val phrases: List[String]) {</br>
+		  &nbsp;&nbsp;def and(keyPhrase: String) = new Theme(name, phrases :+ keyPhrase)</br>
+		}</br>
+
+		object ClassificatorExtensions{</br>
+		  &nbsp;&nbsp;implicit def stringWrapper(text: String) = new Theme(text, List())</br>
+		}</br>
+		
+		import ClassificatorExtensions._</br>
+
+		object StandardThemes {</br>
+		  &nbsp;&nbsp;def getAll:List[Theme] = {</br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;List(</br>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Linux" and "Linux" and "Ubuntu",</br>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" and "Javascript" and "Requirejs",</br>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Google" and "Google" and "Android")</br>
+		  &nbsp;&nbsp;}</br>
+		}</br>
+    	</br>
+    	</br>
+
+
 		04.05.2014
 		<h3>Issue 15: Scala range</h3>
 		for(x <- (1 to 100)){</br>
