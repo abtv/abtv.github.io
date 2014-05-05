@@ -55,6 +55,27 @@
 		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Google" and "Google" and "Android")</br>
 		  &nbsp;&nbsp;}</br>
 		}</br>
+
+		or so:</br>
+
+		object ClassificatorExtensions{</br>
+		  &nbsp;&nbsp;implicit class ThemeExtension(val theme: Theme){</br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;def and(keyPhrase: String) = {</br>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(theme.name, theme.phrases :+ keyPhrase)</br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
+		  &nbsp;&nbsp;}</br>
+		  &nbsp;&nbsp;implicit class StringExtension(val themeName: String){</br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;def is(keyPhrase: String) = {</br>
+		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(themeName, List(keyPhrase))</br>
+		    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
+		  &nbsp;&nbsp;}</br>
+		}</br>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;"Linux" is "Linux" and "Ubuntu",</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" is "Javascript" and "Requirejs",</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;"Google" is "Google" and "Android"</br>
+
+
     	</br>
     	</br>
 
