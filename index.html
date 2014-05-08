@@ -35,6 +35,18 @@
 		<h2>Scala week</h2>
 
 		08.05.2014
+		<h3>Issue 18: error /usr/bin/env: node: No such file or directory</h3>
+		Some linux distributions install nodejs not as "node" executable but as "nodejs".</br>
+
+		In this case you have to manually link to "node" as many packages are programmed after the "node" binary. Something similar also occurs with "python2" not linked to "python".</br>
+
+		In this case you can do an easy symlink. For linux distributions which install package binaries to /usr/bin you can do</br>
+
+		ln -s /usr/bin/nodejs /usr/bin/node
+
+		</br>
+		</br>
+
 		<h3>Issue 17: Little about git</h3>
 		git checkout -b newdesign origin/newdesign - pulls branch newdesign (not existing yet on local) from origin</br>
 		git pull --all - pulls all branches from remote</br>
