@@ -7,7 +7,8 @@
     <meta name="description" content="abtv's notepad" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <script src="./javascripts/jquery-2.1.1.min.js"></script>
+    <script src="./javascripts/main.js"></script>
     <title>abtv's notepad</title>
   </head>
 
@@ -35,105 +36,95 @@
 		<h2>Scala week</h2>
 
 		09.05.2014
-		<h3>Issue 20: Installing JDK on Ubuntu</h3>
-		sudo apt-get install openjdk-7-jdk
-		</br>
-		</br>
+		<h3 class="problem">Issue 20: Installing JDK on Ubuntu</h3>
+		<div class="solution">
+			sudo apt-get install openjdk-7-jdk	
+		</div>
 
-		<h3>Issue 19: Installing sublime text 3</h3>
-		sudo add-apt-repository ppa:webupd8team/sublime-text-3</br>
-		sudo apt-get update</br>
-		sudo apt-get install sublime-text-installer
-		</br>
-		</br>
+		<h3 class="problem">Issue 19: Installing sublime text 3</h3>
+		<div class="solution">
+			sudo add-apt-repository ppa:webupd8team/sublime-text-3</br>
+			sudo apt-get update</br>
+			sudo apt-get install sublime-text-installer
+		</div>
 
 
 		08.05.2014
-		<h3>Issue 18: error /usr/bin/env: node: No such file or directory</h3>
-		Some linux distributions install nodejs not as "node" executable but as "nodejs".</br>
+		<h3 class="problem">Issue 18: error /usr/bin/env: node: No such file or directory</h3>
+		<div class="solution">
+			Some linux distributions install nodejs not as "node" executable but as "nodejs".</br>
 
-		In this case you have to manually link to "node" as many packages are programmed after the "node" binary. Something similar also occurs with "python2" not linked to "python".</br>
+			In this case you have to manually link to "node" as many packages are programmed after the "node" binary. Something similar also occurs with "python2" not linked to "python".</br>
 
-		In this case you can do an easy symlink. For linux distributions which install package binaries to /usr/bin you can do</br>
+			In this case you can do an easy symlink. For linux distributions which install package binaries to /usr/bin you can do</br>
 
-		ln -s /usr/bin/nodejs /usr/bin/node
+			ln -s /usr/bin/nodejs /usr/bin/node
+		</div>
 
-		</br>
-		</br>
-
-		<h3>Issue 17: Little about git</h3>
-		git checkout -b newdesign origin/newdesign - pulls branch newdesign (not existing yet on local) from origin</br>
-		git pull --all - pulls all branches from remote</br>
-		git branch -a - shows all branches (including remote)
-
-		</br>
-		</br>
+		<h3 class="problem">Issue 17: Little about git</h3>
+		<div class="solution">
+			git checkout -b newdesign origin/newdesign - pulls branch newdesign (not existing yet on local) from origin</br>
+			git pull --all - pulls all branches from remote</br>
+			git branch -a - shows all branches (including remote)
+		</div>
 
 		05.05.2014
-		<h3>Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
+		<h3 class="problem">Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
+		<div class="solution">
+			class Theme(val name: String, val phrases: List[String]) {</br>
+			  &nbsp;&nbsp;def and(keyPhrase: String) = new Theme(name, phrases :+ keyPhrase)</br>
+			}</br>
 
-		class Theme(val name: String, val phrases: List[String]) {</br>
-		  &nbsp;&nbsp;def and(keyPhrase: String) = new Theme(name, phrases :+ keyPhrase)</br>
-		}</br>
+			object ClassificatorExtensions{</br>
+			  &nbsp;&nbsp;implicit def stringWrapper(text: String) = new Theme(text, List())</br>
+			}</br>
+			
+			import ClassificatorExtensions._</br>
 
-		object ClassificatorExtensions{</br>
-		  &nbsp;&nbsp;implicit def stringWrapper(text: String) = new Theme(text, List())</br>
-		}</br>
-		
-		import ClassificatorExtensions._</br>
+			object StandardThemes {</br>
+			  &nbsp;&nbsp;def getAll:List[Theme] = {</br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;List(</br>
+			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Linux" and "Linux" and "Ubuntu",</br>
+			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" and "Javascript" and "Requirejs",</br>
+			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Google" and "Google" and "Android")</br>
+			  &nbsp;&nbsp;}</br>
+			}</br>
 
-		object StandardThemes {</br>
-		  &nbsp;&nbsp;def getAll:List[Theme] = {</br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;List(</br>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Linux" and "Linux" and "Ubuntu",</br>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" and "Javascript" and "Requirejs",</br>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Google" and "Google" and "Android")</br>
-		  &nbsp;&nbsp;}</br>
-		}</br>
+			or so:</br>
 
-		or so:</br>
+			object ClassificatorExtensions{</br>
+			  &nbsp;&nbsp;implicit class ThemeExtension(val theme: Theme){</br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;def and(keyPhrase: String) = {</br>
+			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(theme.name, theme.phrases :+ keyPhrase)</br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
+			  &nbsp;&nbsp;}</br>
+			  &nbsp;&nbsp;implicit class StringExtension(val themeName: String){</br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;def is(keyPhrase: String) = {</br>
+			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(themeName, List(keyPhrase))</br>
+			    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
+			  &nbsp;&nbsp;}</br>
+			}</br>
 
-		object ClassificatorExtensions{</br>
-		  &nbsp;&nbsp;implicit class ThemeExtension(val theme: Theme){</br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;def and(keyPhrase: String) = {</br>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(theme.name, theme.phrases :+ keyPhrase)</br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
-		  &nbsp;&nbsp;}</br>
-		  &nbsp;&nbsp;implicit class StringExtension(val themeName: String){</br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;def is(keyPhrase: String) = {</br>
-		      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(themeName, List(keyPhrase))</br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
-		  &nbsp;&nbsp;}</br>
-		}</br>
-
-		&nbsp;&nbsp;&nbsp;&nbsp;"Linux" is "Linux" and "Ubuntu",</br>
-		&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" is "Javascript" and "Requirejs",</br>
-		&nbsp;&nbsp;&nbsp;&nbsp;"Google" is "Google" and "Android"</br>
-
-
-    	</br>
-    	</br>
-
+			&nbsp;&nbsp;&nbsp;&nbsp;"Linux" is "Linux" and "Ubuntu",</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" is "Javascript" and "Requirejs",</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;"Google" is "Google" and "Android"</br>
+		</div>
 
 		04.05.2014
-		<h3>Issue 15: Scala range</h3>
-		for(x <- (1 to 100)){</br>
-      	  &nbsp;&nbsp;//x changes from 1 to 100 inclusive (for exclusive upper bound use 1 until 100)</br>
-    	}
-    	</br>
-    	</br>
+		<h3 class="problem">Issue 15: Scala range</h3>
+		<div class="solution">
+			for(x <- (1 to 100)){</br>
+      	  		&nbsp;&nbsp;//x changes from 1 to 100 inclusive (for exclusive upper bound use 1 until 100)</br>
+    		}
+		</div>
 
-
-
-		<h3>Issue 14: Scala secondary constructor</h3>
-		class Page(val url: String, val title: String, val text: String, val themes: Array[String]) {</br>
-		  &nbsp;&nbsp;def this(page: Page) = this(page.url, page.title, page.text, page.themes)//secondary ctr</br>
-		  &nbsp;&nbsp;override def toString() = url</br>
-		}
-
-		</br>
-		</br>
-
+		<h3 class="problem">Issue 14: Scala secondary constructor</h3>
+		<div class="solution">
+			class Page(val url: String, val title: String, val text: String, val themes: Array[String]) {</br>
+		  	&nbsp;&nbsp;def this(page: Page) = this(page.url, page.title, page.text, page.themes)//secondary ctr</br>
+		  	&nbsp;&nbsp;override def toString() = url</br>
+			}
+		</div>
 	  </section>
 	</div>
   </body>
