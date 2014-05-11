@@ -36,13 +36,13 @@
 		<h2>Scala week</h2>
 
 		09.05.2014
-		<h3 class="problem">Issue 20: Installing JDK on Ubuntu</h3>
-		<div class="solution">
+		<h3 id="is20">Issue 20: Installing JDK on Ubuntu</h3>
+		<div>
 			sudo apt-get install openjdk-7-jdk	
 		</div>
 
-		<h3 class="problem">Issue 19: Installing sublime text 3</h3>
-		<div class="solution">
+		<h3 id="is19">Issue 19: Installing sublime text 3</h3>
+		<div>
 			sudo add-apt-repository ppa:webupd8team/sublime-text-3</br>
 			sudo apt-get update</br>
 			sudo apt-get install sublime-text-installer
@@ -50,8 +50,8 @@
 
 
 		08.05.2014
-		<h3 class="problem">Issue 18: error /usr/bin/env: node: No such file or directory</h3>
-		<div class="solution">
+		<h3 id="is18">Issue 18: error /usr/bin/env: node: No such file or directory</h3>
+		<div>
 			Some linux distributions install nodejs not as "node" executable but as "nodejs".</br>
 
 			In this case you have to manually link to "node" as many packages are programmed after the "node" binary. Something similar also occurs with "python2" not linked to "python".</br>
@@ -61,16 +61,16 @@
 			ln -s /usr/bin/nodejs /usr/bin/node
 		</div>
 
-		<h3 class="problem">Issue 17: Little about git</h3>
-		<div class="solution">
+		<h3 id="is17">Issue 17: Little about git</h3>
+		<div>
 			git checkout -b newdesign origin/newdesign - pulls branch newdesign (not existing yet on local) from origin</br>
 			git pull --all - pulls all branches from remote</br>
 			git branch -a - shows all branches (including remote)
 		</div>
 
 		05.05.2014
-		<h3 class="problem">Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
-		<div class="solution">
+		<h3 id="is16">Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
+		<div>
 			class Theme(val name: String, val phrases: List[String]) {</br>
 			  &nbsp;&nbsp;def and(keyPhrase: String) = new Theme(name, phrases :+ keyPhrase)</br>
 			}</br>
@@ -111,15 +111,15 @@
 		</div>
 
 		04.05.2014
-		<h3 class="problem">Issue 15: Scala range</h3>
-		<div class="solution">
+		<h3 id="is15">Issue 15: Scala range</h3>
+		<div>
 			for(x <- (1 to 100)){</br>
       	  		&nbsp;&nbsp;//x changes from 1 to 100 inclusive (for exclusive upper bound use 1 until 100)</br>
     		}
 		</div>
 
-		<h3 class="problem">Issue 14: Scala secondary constructor</h3>
-		<div class="solution">
+		<h3 id="is14">Issue 14: Scala secondary constructor</h3>
+		<div>
 			class Page(val url: String, val title: String, val text: String, val themes: Array[String]) {</br>
 		  	&nbsp;&nbsp;def this(page: Page) = this(page.url, page.title, page.text, page.themes)//secondary ctr</br>
 		  	&nbsp;&nbsp;override def toString() = url</br>

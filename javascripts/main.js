@@ -1,46 +1,27 @@
 console.log('Start running...');
 
-var state = {};
+var showed = {};
 
 
-function action(element){
+function runMenuAction(element){
 	var id = element[0].id;
-	var showed = state[id];
-	if (showed){
-		element.hide();	
+	var speed = "fast";
+	if (showed[id]){
+		element.next().hide(speed);	
 	} else {
-		element.show();
+		element.next().show(speed);
 	}
-	state[id] = !state[id];
+	showed[id] = !showed[id];
 };
 
 $(document).ready(function(){
-	$("h3").next().hide();
-	$("h3").next().attr("showed", false);
 	$("h3").next().each(function(index, value){
-		state[value.id] = false;
+		showed[$(value).prev()[0].id] = false;
+		$(value).hide();
 	});
-	$("h3").click(function(){ action($(this).next()); });
+	$("h3")
+		.css("cursor", "pointer")
+		.click(function(){ runMenuAction($(this)); });
 });
 
 console.log('Completed');
-
-// function action(element){
-// 	var showed = element.attr("showed");
-// 	console.log(showed);
-// 	var anti = !showed;
-// 	console.log(anti);
-// 	element.attr("showed", anti);
-// 	console.log(element.attr("showed"));
-// 	if (showed === true){
-// 		element.hide();	
-// 	} else {
-// 		element.show();
-// 	}
-// };
-
-// $(document).ready(function(){
-// 	$("h3").next().hide();
-// 	$("h3").next().attr("showed", false);
-// 	$("h3").click(function(){ action($(this).next()); });
-// });
