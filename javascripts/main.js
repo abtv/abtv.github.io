@@ -6,10 +6,11 @@ var showed = {};
 function runMenuAction(element){
 	var id = element[0].id;
 	var speed = "fast";
+	var text = element.next();
 	if (showed[id]){
-		element.next().hide(speed);	
+		text.hide(speed);	
 	} else {
-		element.next().show(speed);
+		text.show(speed);
 	}
 	showed[id] = !showed[id];
 };
