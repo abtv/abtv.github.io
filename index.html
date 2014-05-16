@@ -44,18 +44,27 @@
 			What matters (from official documentation):</br> </br> 
 
 			Module Stage method autoClear</br> 
-			Indicates whether the stage should automatically clear the canvas before each render. You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).</br> </br> 
-
-
-			Module Graphics method clear</br> 
-			Clears all drawing instructions, effectively resetting this Graphics instance. Any line and fill styles will need to be redefined to draw shapes following a clear call. A tiny API method "c" also exists.</br> 
-			Returns: Graphics instance the method is called on (useful for chaining calls.)</br></br> 
-
+			Indicates whether the stage should automatically clear the canvas before each render. You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).</br></br>
 
 			Module Shape method updateCache ( compositeOperation )</br> 
 			Redraws the display object to its cache. Calling updateCache without an active cache will throw an error. If compositeOperation is null the current cache will be cleared prior to drawing. Otherwise the display object will be drawn over the existing cache using the specified compositeOperation.</br> 
 			Parameters: compositeOperation (String)</br> 
-			The compositeOperation to use, or null to clear the cache and redraw it. whatwg spec on compositing.So, parameter "source-overlay" draw the new vector onto the existing cache, compositing it with the "source-overlay" composite operation.
+			The compositeOperation to use, or null to clear the cache and redraw it. whatwg spec on compositing.So, parameter "source-overlay" draw the new vector onto the existing cache, compositing it with the "source-overlay" composite operation.</br></br>
+
+			Module Graphics method clear</br> 
+			Clears all drawing instructions, effectively resetting this Graphics instance. Any line and fill styles will need to be redefined to draw shapes following a clear call. A tiny API method "c" also exists.</br> 
+			Returns: Graphics instance the method is called on (useful for chaining calls.)</br></br>
+
+			Module Graphics method bezierCurveTo ( cp1x  cp1y  cp2x  cp2y  x  y ) </br> 
+			Draws a bezier curve from the current drawing point to (x, y) using the control points (cp1x, cp1y) and (cp2x, cp2y). For detailed information, read the whatwg spec. A tiny API method "bt" also exists.
+			Parameters:</br> 
+			cp1x Number</br> 
+			cp1y Number</br> 
+			cp2x Number</br> 
+			cp2y Number</br> 
+			x Number</br> 
+			y Number</br> 
+			Returns the Graphics instance the method is called on (useful for chaining calls.)</br></br>
 
 
 		</div>
