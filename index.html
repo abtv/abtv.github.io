@@ -41,9 +41,23 @@
 			<a href="https://github.com/abtv/easeljsdraw">Little project: how to implement fast drawing with vector objects moving</a>
 			</br>
 			</br> 
-			What matters (from official documentation):</br> 
-			Stage autoClear</br> 
-			Indicates whether the stage should automatically clear the canvas before each render. You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).
+			What matters (from official documentation):</br> </br> 
+
+			Module Stage method autoClear</br> 
+			Indicates whether the stage should automatically clear the canvas before each render. You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).</br> </br> 
+
+
+			Module Graphics method clear</br> 
+			Clears all drawing instructions, effectively resetting this Graphics instance. Any line and fill styles will need to be redefined to draw shapes following a clear call. A tiny API method "c" also exists.</br> 
+			Returns: Graphics instance the method is called on (useful for chaining calls.)</br></br> 
+
+
+			Module Shape method updateCache ( compositeOperation )</br> 
+			Redraws the display object to its cache. Calling updateCache without an active cache will throw an error. If compositeOperation is null the current cache will be cleared prior to drawing. Otherwise the display object will be drawn over the existing cache using the specified compositeOperation.</br> 
+			Parameters: compositeOperation (String)</br> 
+			The compositeOperation to use, or null to clear the cache and redraw it. whatwg spec on compositing.So, parameter "source-overlay" draw the new vector onto the existing cache, compositing it with the "source-overlay" composite operation.
+
+
 		</div>
 		
 		<h3 id="is21">Issue 21: Installing Sublime Text 3 package control sysytem and some useful plugins</h3>
