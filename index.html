@@ -24,172 +24,18 @@
       <section id="main_content" class="inner">
         
   
-	    <a href="index1.html">Go to Mongo & Git week</a>
+	    <a href="index2.html">Go to Javascript days and Scala week &gt;&gt; </a>
 
 		</br>
 		</br>
 		</br>
 
-		<h2>Javascript days</h2>
-		20.05.2014
+		<h2>Processing week</h2>
+		22.05.2014
 
-		<h3 id="is23">Issue 23: Uninstall package in Ubuntu</h3>
+		<h3 id="is24">Issue 24: Some memorable moments from "Getting real" from 37 signals</h3>
 		<div>
-			sudo apt-get purge package_name
-		</div>
-
-		</br>
-		14.05.2014
-		<h3 id="is22">Issue 22: Some easeljs docs</h3>
-		<div>
-			<a href="https://github.com/abtv/easeljsdraw">Little project: how to implement fast drawing with vector objects moving</a>
-			</br>
-			</br> 
-			What matters (from official documentation):</br> </br> 
-
-			Module Stage method autoClear</br> 
-			Indicates whether the stage should automatically clear the canvas before each render. You can set this to false to manually control clearing (for generative art, or when pointing multiple stages at the same canvas for example).</br></br>
-
-			Module Shape method updateCache ( compositeOperation )</br> 
-			Redraws the display object to its cache. Calling updateCache without an active cache will throw an error. If compositeOperation is null the current cache will be cleared prior to drawing. Otherwise the display object will be drawn over the existing cache using the specified compositeOperation.</br> 
-			Parameters: compositeOperation (String)</br> 
-			The compositeOperation to use, or null to clear the cache and redraw it. whatwg spec on compositing.So, parameter "source-overlay" draw the new vector onto the existing cache, compositing it with the "source-overlay" composite operation.</br></br>
-
-			Module Graphics method clear</br> 
-			Clears all drawing instructions, effectively resetting this Graphics instance. Any line and fill styles will need to be redefined to draw shapes following a clear call. A tiny API method "c" also exists.</br> 
-			Returns: Graphics instance the method is called on (useful for chaining calls.)</br></br>
-
-			Module Graphics method bezierCurveTo ( cp1x  cp1y  cp2x  cp2y  x  y ) </br> 
-			Draws a bezier curve from the current drawing point to (x, y) using the control points (cp1x, cp1y) and (cp2x, cp2y). For detailed information, read the whatwg spec. A tiny API method "bt" also exists.
-			Parameters:</br> 
-			cp1x Number</br> 
-			cp1y Number</br> 
-			cp2x Number</br> 
-			cp2y Number</br> 
-			x Number</br> 
-			y Number</br> 
-			Returns the Graphics instance the method is called on (useful for chaining calls.)</br></br>
-
-
-		</div>
-		
-		<h3 id="is21">Issue 21: Installing Sublime Text 3 package control system and some useful plugins</h3>
-		<div>
-			Open Sublime Text 3, then press Ctrl + ` (opens console) and insert following:
-			</br>
-			</br> 
-
-			import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-			</br>
-			</br> 
-			Then open Preferences => Package control => Install package and install following useful packages:
-			<ol>
-				<li>HTML 5</li>
-				<li>Git</li>
-				<li>jQuery</li>
-				<li>jQuery Docs</li>
-				<li>Less</li>
-				<li>JsFormat</li>
-				<li>ColorPicker</li>
-				<li>All Autocomplete</li>
-				<li>Color Highlighter</li>
-				<li>View in browser</li>
-			</ol>
-		</div>
-
-		</br>
-		<h2>Scala week</h2>
-		09.05.2014
-		<h3 id="is20">Issue 20: Installing JDK on Ubuntu</h3>
-		<div>
-			sudo apt-get install openjdk-7-jdk	
-		</div>
-
-		<h3 id="is19">Issue 19: Installing sublime text 3</h3>
-		<div>
-			sudo add-apt-repository ppa:webupd8team/sublime-text-3</br>
-			sudo apt-get update</br>
-			sudo apt-get install sublime-text-installer
-		</div>
-
-		</br>
-		08.05.2014
-		<h3 id="is18">Issue 18: error /usr/bin/env: node: No such file or directory</h3>
-		<div>
-			Some linux distributions install nodejs not as "node" executable but as "nodejs".</br>
-
-			In this case you have to manually link to "node" as many packages are programmed after the "node" binary. Something similar also occurs with "python2" not linked to "python".</br>
-
-			In this case you can do an easy symlink. For linux distributions which install package binaries to /usr/bin you can do</br>
-
-			ln -s /usr/bin/nodejs /usr/bin/node
-		</div>
-
-		<h3 id="is17">Issue 17: Little about git</h3>
-		<div>
-			git checkout -b newdesign origin/newdesign - pulls branch newdesign (not existing yet on local) from origin</br>
-			git pull --all - pulls all branches from remote</br>
-			git branch -a - shows all branches (including remote)
-		</div>
-
-		</br>
-		05.05.2014
-		<h3 id="is16">Issue 16: Tiny DSL (hmm, implicits is a grenade in monkey's hands)</h3>
-		<div>
-			class Theme(val name: String, val phrases: List[String]) {</br>
-			  &nbsp;&nbsp;def and(keyPhrase: String) = new Theme(name, phrases :+ keyPhrase)</br>
-			}</br>
-
-			object ClassificatorExtensions{</br>
-			  &nbsp;&nbsp;implicit def stringWrapper(text: String) = new Theme(text, List())</br>
-			}</br>
 			
-			import ClassificatorExtensions._</br>
-
-			object StandardThemes {</br>
-			  &nbsp;&nbsp;def getAll:List[Theme] = {</br>
-			    &nbsp;&nbsp;&nbsp;&nbsp;List(</br>
-			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Linux" and "Linux" and "Ubuntu",</br>
-			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" and "Javascript" and "Requirejs",</br>
-			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Google" and "Google" and "Android")</br>
-			  &nbsp;&nbsp;}</br>
-			}</br>
-
-			or so:</br>
-
-			object ClassificatorExtensions{</br>
-			  &nbsp;&nbsp;implicit class ThemeExtension(val theme: Theme){</br>
-			    &nbsp;&nbsp;&nbsp;&nbsp;def and(keyPhrase: String) = {</br>
-			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(theme.name, theme.phrases :+ keyPhrase)</br>
-			    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
-			  &nbsp;&nbsp;}</br>
-			  &nbsp;&nbsp;implicit class StringExtension(val themeName: String){</br>
-			    &nbsp;&nbsp;&nbsp;&nbsp;def is(keyPhrase: String) = {</br>
-			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new Theme(themeName, List(keyPhrase))</br>
-			    &nbsp;&nbsp;&nbsp;&nbsp;}</br>
-			  &nbsp;&nbsp;}</br>
-			}</br>
-
-			&nbsp;&nbsp;&nbsp;&nbsp;"Linux" is "Linux" and "Ubuntu",</br>
-			&nbsp;&nbsp;&nbsp;&nbsp;"Javascript" is "Javascript" and "Requirejs",</br>
-			&nbsp;&nbsp;&nbsp;&nbsp;"Google" is "Google" and "Android"</br>
-		</div>
-
-		</br>
-		04.05.2014
-		<h3 id="is15">Issue 15: Scala range</h3>
-		<div>
-			for(x <- (1 to 100)){</br>
-      	  		&nbsp;&nbsp;//x changes from 1 to 100 inclusive (for exclusive upper bound use 1 until 100)</br>
-    		}
-		</div>
-
-		<h3 id="is14">Issue 14: Scala secondary constructor</h3>
-		<div>
-			class Page(val url: String, val title: String, val text: String, val themes: Array[String]) {</br>
-		  	&nbsp;&nbsp;def this(page: Page) = this(page.url, page.title, page.text, page.themes)//secondary ctr</br>
-		  	&nbsp;&nbsp;override def toString() = url</br>
-			}
 		</div>
 	  </section>
 	</div>
