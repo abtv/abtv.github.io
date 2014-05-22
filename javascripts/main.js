@@ -2,7 +2,6 @@ console.log('Start running...');
 
 var showed = {};
 
-
 function runMenuAction(element){
 	var id = element[0].id;
 	var speed = "fast";
@@ -16,6 +15,10 @@ function runMenuAction(element){
 };
 
 $(document).ready(function(){
+	document.title = "abtv's notepad";
+	$("#project_title").text("abtv");
+	$("#project_tagline").text("My notepad - succinct issues and solutions");
+
 	$("h3").next().each(function(index, value){
 		showed[$(value).prev()[0].id] = false;
 		$(value).hide();
