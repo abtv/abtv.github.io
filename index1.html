@@ -30,39 +30,40 @@
 </br>
 
 <h2>Mongo & Git week</h2>
-
 02.05.2014
-<h3>Issue 13: Sql's analogs in mongo</h3>
+<h3 id="is13">Issue 13: Sql's analogs in mongo</h3>
+<div>
 db.pages.find({}, {url: 1, themes: 1})</br>
 db.pages.find({url: "http://someurl.com"}, {url: 1, themes: 1})</br>
 db.pages.remove({url: "http://someurl.com"})</br>
 db.users.ensureIndex( { url: 1, title: -1 } ) - creates index with url by ascending and title by descending</br>
 <a href="http://docs.mongodb.org/manual/reference/sql-comparison/">See more info on official site</a>
-</br>
-</br>
+</div>
 
-<h3>Issue 12: Git's problem</h3>
+<h3 id="is12">Issue 12: Git's problem</h3>
+<div>
 Problem:</br>
 updates were rejected because a pushed branch tip is behind its remote counterpart.
 Checkout this branch and integrate remote changes (e.g. git pull ...) before pushing again</br>
 Solution:</br>
 Check your commit. If it isn't master, then checkout master and pull changes into master.</br>
-Merege master with your previous commit, resolve conflicts and push changes.
-</br>
-</br>
+Merege master with your previous commit, resolve conflicts and push changes.	
+</div>
 
+</br>
 30.04.2014
-<h3>Issue 11: Some dpkg and vim</h3>
+<h3 id="is11">Issue 11: Some dpkg and vim</h3>
+<div>
 dpkg -l | grep scala - searchs all packages, which names contains scala</br>
 sudo dpkg -i robomongo.deb - install robomongo</br>
 sudo dpkg -r robomongo</br>
 la | vim -   minus enables read from stdin
+</div>
 
 </br>
-</br>
-
 29.04.2014
-<h3>Issue 10: Using MongoDB for storing and retrieving data</h3>
+<h3 id="is10">Issue 10: Using MongoDB for storing and retrieving data</h3>
+<div>
 use pagesdb - switch to specified database</br>
 db.version() - shows current version mongodb</br>
 db.stats() - shows current database's statistics</br>
@@ -71,33 +72,31 @@ db.pages.count() - shows total records in collection pages</br>
 db.pages.find() - shows all records in collection pages</br>
 db.items.find({age: {$gt: 29}}) - search with filter</br>
 db.pages.remove({}) - removes all from collection pages
-
+</div>
 
 </br>
-</br>
-
-
 27.04.2014
-<h3>Issue 9: Setting up Scala IDE for Eclipse</h3>
+<h3 id="is9">Issue 9: Setting up Scala IDE for Eclipse</h3>
+<div>
 1. Open http://scala-ide.org/download/sdk.html and select Linux GTK 64-bit</br>
 2. Extract archive to /home/andrew/programs/eclipse</br>
 3. Double click on file eclipse
-</br>
-</br>
+</div>
 
+<h3 id="is8">Issue 8: Adding mongodb support to scala project</h3>
+<div>
+Append to your's pom file</br>
+&lt;dependency&gt;</br>
+  &lt;groupId&gt;org.mongodb&lt;/groupId&gt;</br>
+  &lt;artifactId&gt;casbah_2.10&lt;/artifactId&gt;</br>
+  &lt;version&gt;2.7.0&lt;/version&gt;</br>
+  &lt;type&gt;pom&lt;/type&gt;</br>
+&lt;/dependency&gt;</br>
+</div>
 
-<h3>Issue 8: Adding mongodb support to scala project</h3>
-Append to your's pom file
-<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
-  &lt;artifactId&gt;casbah_2.10&lt;/artifactId&gt;
-  &lt;version&gt;2.7.0&lt;/version&gt;
-  &lt;type&gt;pom&lt;/type&gt;
-&lt;/dependency&gt;</code></pre>
-</br>
-</br>
-
-<h3>Issue 7: Configuring mongodb</h3>
+<h3 id="is7">Issue 7: Configuring mongodb</h3>
+<div>
+<h3></h3>
 1. Start mongodb</br>
 <pre><code>sudo /etc/init.d/mongod start</code></pre>
 2. Verifing that mongodb started successfully</br>
@@ -112,32 +111,33 @@ in terminal</br>
 7. use adb - creates database with name adb and switches to adb database</br>
 </br>
 </br>
+	
+</div>
 
-<h3>Issue 6: Setting up mongodb</h3>
-1. Import the public key used by the package management system
-<pre><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code></pre>
-2. Create a list file for MongoDB
-<pre><code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</code></pre>
-3. Reload local package database
-<pre><code>sudo apt-get update</code></pre>
-4. Install the MongoDb packages
-<pre><code>sudo apt-get install mongodb-org</code></pre>
-</br>
+<h3 id="is6">Issue 6: Setting up mongodb</h3>
+<div>
+1. Import the public key used by the package management system</br>
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</br>
+2. Create a list file for MongoDB</br>
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</br>
+3. Reload local package database</br>
+sudo apt-get update</br>
+4. Install the MongoDb packages</br>
+sudo apt-get install mongodb-org</br>
 </br>
 Installing homebrew:</br>
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"</br>
 brew doctor</br>
-brew install mongodb</br>
+brew install mongodb
+</div>
 
-
-<h3>Issue 5: Speed up your work with git: adorable aliases can simplify typing</h3>
-Execute
-<pre><code>vim .bashrc</code></pre>
-or (if you use zsh)
-<pre><code>vim .zshrc</code></pre>
-<p>
+<h3 id="is5">Issue 5: Speed up your work with git: adorable aliases can simplify typing</h3>
+<div>
+Execute</br>
+vim .bashrc</br>
+or (if you use zsh)</br>
+vim .zshrc</br>
 and type</br>
-
 #git aliases</br>
 alias ga="git add "</br>
 alias gb="git branch "</br>
@@ -148,10 +148,10 @@ alias gl="git log "</br>
 alias gpl="git pull "</br>
 alias gps="git push "</br>
 alias gs="git status "
-</p>
-</br>
+</div>
 
-<h3>Issue 4: Using vim to copy and paste text</h3>
+<h3 id="is4">Issue 4: Using vim to copy and paste text</h3>
+<div>
 Simple commands:</br>
   1. Type yy to copy single line</br>
   2. Type p to paste text from clipboard</br>
@@ -162,51 +162,39 @@ Simple commands:</br>
 Selection commands:</br>
   1. First press Shift+V to select lines and then press y to copy it all</br>
   2. Then press p to insert selected lines 
-</br>
-</br>
+</div>
 
-
-<h3>Issue 3: Setting up scala build tools</h3>
+<h3 id="is3">Issue 3: Setting up scala build tools</h3>
+<div>
 1. Download sbt from here: http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.12.4/sbt.tgz</br>
 2. Unpack the archive to a directory /home/andrew/programs/sbt/</br>
 3. Add the bin/ directory to the PATH environment variable. Open the file ~/.bashrc (or .zshrc if you use zsh) in an editor (create it if it doesn’t exist) and add the following line export PATH=/home/andrew/programs/sbt/bin:$PATH</br>
 4. Verify that sbt is installed correctly: Open a new terminal (to apply the changed .bashrc or .zshrc) and type sbt -h, you should see a help message from sbt. If you have problems installing sbt, ask for help on the forums.</br>
 </br>
-Problem: on my ubuntu 14.04 sbt from zsh not work, but work on ubuntu 13.10
+Problem: on my ubuntu 14.04 sbt from zsh not work, but work on ubuntu 13.10	
+</div>
 
-</br>
-</br>
 </br>
 26.04.2014
 
-<h3>Issue 2: New repo was created</h3>
-<pre><code>git clone https://github.com/abtv/abtv.github.io.git
-vim index.html
-git add index.html
-git commit -a -m "page was created"
-git remote add origin https://github.com/abtv/abtv.github.io.git
-git push -u origin master
-</code></pre>
-</br>
-</br>
+<h3 id="is2">Issue 2: New repo was created</h3>
+<div>
+	git clone https://github.com/abtv/abtv.github.io.git</br>
+	vim index.html</br>
+	git add index.html</br>
+	git commit -a -m "page was created"</br>
+	git remote add origin https://github.com/abtv/abtv.github.io.git</br>
+	git push -u origin master</br>
+</div>
 
-<h3>
-Issue 1: Setting up Oh my zsh
-Firstly, you need git installed on your ubuntu
-</h3>
-<pre><code>sudo apt-get install zsh
-</code></pre>
-<p>	
-Type and run 
-<pre><code>vim ~.bashrc
-</code></pre>
-and insert line "exec zsh" without quotes</br>
-</p>
-<pre><code>sudo shutdown -r now
-wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-</code></pre>
-<p>	
-All you need issues simply restart terminal
-</p>
-
-<pre><code></code></pre>
+<h3 id="is1">Issue 1: Setting up Oh my zsh</h3>
+<div>
+	Firstly, you need git installed on your ubuntu</br>
+	sudo apt-get install zsh</br>
+	Type and run</br>
+	vim ~.bashrc</br>
+	and insert line "exec zsh" without quotes</br>
+	sudo shutdown -r now</br>
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh</br>
+	All you need is simply restart terminal
+</div>
