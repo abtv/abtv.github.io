@@ -36,24 +36,49 @@
 
 		<h3 id="is29">Issue 29: Lambdas</h3>
 		<div>
-			<a href="http://blog.smartbear.com/c-plus-plus/c11-tutorial-lambda-expressions-the-nuts-and-bolts-of-functional-programming/">The original article</a>
-			
+			<a href="http://blog.smartbear.com/c-plus-plus/c11-tutorial-lambda-expressions-the-nuts-and-bolts-of-functional-programming/">The original article</a></br></br>
+			1. Syntax:</br>
+			[capture clause] (parameters) -> return-type {body}</br></br>
+			2. Example of basic usage</br>
+			vector <accountant> emps {{“Josh”, 2100.0}, {“Kate”, 2900.0}, {“Rose”,1700.0}};</br>
+			const auto min_wage = 1600.0;</br>
+			const auto upper_limit = 1.5*min_wage;</br>
+			//report which accountant has a salary that is within a specific range</br>
+			std::find_if(emps.begin(), emps.end(),</br>
+			[=](const accountant& a) {return a.salary()>=min_wage && a.salary() < upper_limit;});</br></br>
+			3. Capture Lists</br>
+			[=] //capture all of the variables from the enclosing scope by value</br>
+			[&]//capture all of the variables from the enclosing scope by reference</br>
+			[this]//capture all of the data members of the enclosing class</br>
+			You can also specify the capture mechanism for individual variables. In the following example min_wage is captured by copy and upper_limit by reference:</br>
+			[min_wage, &upper_limit](const accountant& a)->bool</br>
+			{return a.salary()>= min_wage && a.salary() < upper_limit;});</br>
+
+			vector<int> v1={0,12,4}, v2={10,12,14,16}; //read about the new C++11 initialization notation</br>
+			[&v1](int k) {vi.push_back(k); };  //capture v1 by reference</br>
+			[&]  (int m) {v1.push_back(m); v2.push_back(m) };//capture vi and vi2 by ref</br>
+			[v1]() //capture v1 by copy</br>
+			{for_each(auto y=v1.begin(), y!=v1.end(), y++) {cout<<y<<" ";}};</br></br>
+			4. Closures</br>
+			auto factorial = [](int i, int j) {return i * j;};</br>
+			int arr{1,2,3,4,5,6,7,8,9,10,11,12};</br>
+			long res = std::accumulate(arr, arr+12, 1, factorial);</br>
 		</div>
 		</br></br>
 
 		<h3 id="is28">Issue 28: A little about c++ 2011</h3>
 		<div>
-			<a href="http://herbsutter.com/elements-of-modern-c-style/">The original article</a></br>
+			<a href="http://herbsutter.com/elements-of-modern-c-style/">The original article</a></br></br>
 			1. Type inference for variables</br>
 			auto i = begin(m);</br>
 			auto const xlimit = config["xlimit"];</br>
-			auto& s = singleton::instance();</br>
+			auto& s = singleton::instance();</br></br>
 			2. nullptr</br>
-			int* p = nullptr;//not 0</br>
+			int* p = nullptr;//not 0</br></br>
 			3. Range for</br>
 			for( auto d : v ) {</br>
     			total += d;</br>
-			}</br>
+			}</br></br>
 			4. Nonmember begin and end</br>
 			vector<int> v;</br>
 			int a[100];</br>
