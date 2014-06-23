@@ -37,6 +37,70 @@
 		</br>
 
 		<h2>C++ and Qt week</h2>
+		23.06.2014
+
+
+		<h3 id="is30">Issue 30: What the differences between a pointer variable and a reference variable in C++</h3>
+		<div>
+			<a href="http://stackoverflow.com/questions/57483/what-are-the-differences-between-pointer-variable-and-reference-variable-in-c">Original discussion</a></br></br>
+			1. A pointer can be re-assigned:</br>
+
+			int x = 5;</br>
+			int y = 6;</br>
+			int *p;</br>
+			p =  &x;</br>
+			p = &y;</br>
+			*p = 10;</br>
+			assert(x == 5);</br>
+			assert(y == 10);</br>
+			A reference cannot, and must be assigned at initialization:</br>
+
+			int x = 5;</br>
+			int y = 6;</br>
+			int &r = x;</br></br>
+
+			2. A pointer has its own memory address and size on the stack (4 bytes on x86), whereas a reference shares the same memory address (with the original variable) but also takes up some space on the stack. Since a reference has the same address as the original variable itself, it is safe to think of a reference as another name for the same variable. Note: What a pointer points to can be on the stack or heap. Ditto a reference. My claim in this statement is not that a pointer must point to the stack. A pointer is just a variable that holds a memory address. This variable is on the stack. Since a reference has its own space on the stack, and since the address is the same as the variable it references. More on stack vs heap. This implies that there is a real address of a reference that the compiler will not tell you.</br>
+
+			int x = 0;</br>
+			int &r = x;</br>
+			int *p = &x;</br>
+			int *p2 = &r;</br>
+			assert(p == p2);</br></br>
+
+			3. You can have pointers to pointers to pointers offering extra levels of indirection. Whereas references only offer one level of indirection.</br>
+
+			int x = 0;</br>
+			int y = 0;</br>
+			int *p = &x;</br>
+			int *q = &y;</br>
+			int **pp = &p;</br>
+			pp = &q;//*pp = q</br>
+			**pp = 4;</br>
+			assert(y == 4);</br>
+			assert(x == 0);</br></br>
+
+			4. Pointer can be assigned NULL directly, whereas reference cannot. If you try hard enough, and you know how, you can make the address of a reference NULL. Likewise, if you try hard enough you can have a reference to a pointer, and then that reference can contain NULL.</br>
+
+			int *p = NULL;</br>
+			int &r = NULL; <--- compiling error</br></br>
+
+			5. Pointers can iterate over an array, you can use ++ to go to the next item that a pointer is pointing to, and + 4 to go to the 5th element. This is no matter what size the object is that the pointer points to.</br></br>
+
+			6. A pointer needs to be dereferenced with * to access the memory location it points to, whereas a reference can be used directly. A pointer to a class/struct uses -> to access it's members whereas a reference uses a ..</br></br>
+
+			7. A pointer is a variable that holds a memory address. Regardless of how a reference is implemented, a reference has the same memory address as the item it references.</br></br>
+
+			8. References cannot be stuffed into an array, whereas pointers can be (Mentioned by user @litb)</br></br>
+
+			9. Const references can be bound to temporaries. Pointers cannot (not without some indirection):</br></br>
+
+			10. const int &x = int(12); //legal C++</br>
+			int *y = &int(12); //illegal to dereference a temporary.</br>
+			This makes const& safer for use in argument lists and so forth.</br>
+
+		</div>
+		</br></br>
+
 		16.06.2014
 
 		<h3 id="is29">Issue 29: Lambdas</h3>
