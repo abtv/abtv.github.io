@@ -37,9 +37,50 @@
 		</br>
 
 		<h2>C++ and Qt week</h2>
+		25.06.2014
+
+		<h3 id="is31">Issue 31: What means the 'explicit' keyword?</h3>
+		<div>
+			<a href="http://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-in-c-mean">The original discussion</a></br></br>
+
+			In C++, the compiler is allowed to make one implicit conversion to resolve the parameters to a function. What this means is that the compiler can use single parameter constructors to convert from one type to another in order to get the right type for a parameter. Here's an example class with a constructor that can be used for implicit conversions:</br></br>
+
+			class Foo</br>
+			{</br>
+			public:</br>
+			  // single parameter constructor, can be used as an implicit conversion</br>
+			  Foo (int foo) : m_foo (foo) </br>
+			  {</br>
+			  }</br>
+</br>
+			  int GetFoo () { return m_foo; }</br>
+</br>
+			private:</br>
+			  int m_foo;</br>
+			};</br>
+			Here's a simple function that takes a Foo object:</br>
+</br>
+			void DoBar (Foo foo)</br>
+			{</br>
+			  int i = foo.GetFoo ();</br>
+			}</br>
+			and here's where the DoBar function is called.</br>
+</br>
+			int main ()</br>
+			{</br>
+			  DoBar (42);</br>
+			}</br>
+			The parameter is not a Foo object, but an int. However, there exists a constructor for Foo that takes an int so this constructor can be used to convert the parameter to the correct type.</br></br>
+
+			The compiler is allowed to do this once for each parameter.</br></br>
+
+			Prefixing the explicit keyword to the constructor prevents the compiler from using that constructor for implicit conversions. Adding it to the above class will create a compiler error at the function call DoBar (42). It is now necessary to call for conversion explicitly with  DoBar (Foo (42))
+		</div>
+		</br></br>
+
+
+
 		23.06.2014
-
-
 		<h3 id="is30">Issue 30: What the differences between a pointer variable and a reference variable in C++</h3>
 		<div>
 			<a href="http://stackoverflow.com/questions/57483/what-are-the-differences-between-pointer-variable-and-reference-variable-in-c">Original discussion</a></br></br>
