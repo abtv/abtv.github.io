@@ -13,7 +13,7 @@
 		$('#divWord').text(currentWord.foreign + " " + currentWord.pronunciation);
 	}
 	function setTranslation(){
-		$('#divTranslate').text(currentWord.motherTongue);
+		$('#divTranslate').text("test");//currentWord.motherTongue);
 	}
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
