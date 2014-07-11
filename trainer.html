@@ -9,11 +9,8 @@
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
 	client.onreadystatechange = function() { 
-		alert('ready!');
-		words = client.responseText; 
-
-		$('#divWord').text(words);
-
+		words = client.responseText.split('\n'); 
+		$('#divWord').text(words[0]);
 	};
 	client.send();
 
