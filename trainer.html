@@ -6,11 +6,15 @@
 <script src="./javascripts/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var words;
+	var currentWord;
 	function setNewWord(){
 		var index = Math.floor(Math.random() * words.length - 1);
-		$('#divWord').text(words[index].foreign);
+		currentWord = words[index];
+		$('#divWord').text(currentWord.foreign + " " + currentWord.pronunciation);
 	}
-
+	function setTranslation(){
+		$('#divTranslate').text(currentWord.motherTongue);
+	}
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
 	client.onreadystatechange = function() { 
@@ -29,9 +33,8 @@
 	client.send();
 </script>
 <body>
-
 <Button id="newButton" onclick="setNewWord()">Get new word</Button>
-<div id="divWord"/>
-
+<div id="divWord" onclick="setTranslation()"/>
+<div id="divTranslate"/>
 </body>
 </html>
