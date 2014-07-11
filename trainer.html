@@ -2,8 +2,16 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>English trainer</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
+<style>
+	.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+</style>
 <script src="./javascripts/jquery-2.1.1.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var words;
 	var currentWord;
@@ -34,9 +42,16 @@
 	client.send();
 </script>
 <body>
-<h3>My personal English trainer</h3>
-<Button id="newButton" onclick="setNewWord()">know word</Button>
-<Button id="dontKnowButton" onclick="setTranslation()">don't know word</Button>
-<div id="divWord"/>
+
+<div class="container">
+
+      <div class="starter-template">
+        <h3>My personal English trainer</h3>
+		<Button id="newButton" class="btn btn-lg btn-success" onclick="setNewWord()">know word</Button>
+		<Button id="dontKnowButton" class="btn btn-lg btn-warning" onclick="setTranslation()">don't know word</Button>
+		<div id="divWord"/>
+      </div>
+
+    </div><!-- /.container -->
 </body>
 </html>
