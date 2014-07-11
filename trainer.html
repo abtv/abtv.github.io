@@ -9,6 +9,7 @@
 	var currentWord;
 	function setNewWord(){
 		var index = Math.floor(Math.random() * words.length - 1);
+		if (index < 0){ return; }
 		currentWord = words[index];
 		$('#divWord').text(currentWord.foreign + " " + currentWord.pronunciation);
 	}
