@@ -6,27 +6,27 @@
 <script src="./javascripts/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var words;
+	function setNewWord(){
+		var index = Math.floor(Math.random() * words.length - 1);
+		$('#divWord').text(words[index].foreign);
+	}
+
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
 	client.onreadystatechange = function() { 
 		words = client.responseText
 		.split('\n')
 		.map(function(el){
-			var word = el.split('\t')
+			var word = el.split('\t');
 			return {
 				foreign: word[0],
 				pronunciation: word[1],
 				motherTongue: word[2]
-			}
+			};
 		}); 
-		$('#divWord').text(words[0].foreign);
+		setNewWord();
 	};
 	client.send();
-
-	function setNewWord(){
-		var index = Math.floor(Math.random() * words.length - 1);
-		$('#divWord').text(words[index].foreign);
-	}
 </script>
 <body>
 
