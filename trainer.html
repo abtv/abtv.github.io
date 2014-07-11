@@ -10,7 +10,7 @@
 	client.open('GET', '/dict.txt');
 	client.onreadystatechange = function() { 
 		words = client.responseText.split('\n'); 
-		$('#divWord').text(words[0]);
+		$('#divWord').text(words[0].split('\t')[0]);
 	};
 	client.send();
 
