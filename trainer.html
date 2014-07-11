@@ -14,7 +14,7 @@
 		$('#divWord').text(currentWord.foreign + " " + currentWord.pronunciation);
 	}
 	function setTranslation(){
-		$('#divTranslate').text("test");//currentWord.motherTongue);
+		$('#divWord').text(currentWord.motherTongue);
 	}
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
@@ -37,6 +37,5 @@
 <Button id="newButton" onclick="setNewWord()">know word</Button>
 <Button id="dontKnowButton" onclick="setTranslation()">don't know word</Button>
 <div id="divWord"/>
-<div id="divTranslate"/>
 </body>
 </html>
