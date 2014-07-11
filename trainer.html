@@ -12,10 +12,11 @@
 		words = client.responseText
 		.split('\n')
 		.map(function(el){
+			var word = el.split('\t')
 			return {
-				foreign: el[0],
-				pronunciation: el[1],
-				motherTongue: el[2]
+				foreign: word[0],
+				pronunciation: word[1],
+				motherTongue: word[2]
 			}
 		}); 
 		$('#divWord').text(words[0].foreign);
