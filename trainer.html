@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>English trainer</title>
+</head>
+<script src="./javascripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+	var words;
+	var client = new XMLHttpRequest();
+	client.open('GET', '/dict.txt');
+	client.onreadystatechange = function() { 
+		alert('ready!');
+		words = client.responseText; 
+
+		$('#divWord').text(words);
+
+	};
+	client.send();
+
+	function setNewWord(){
+		$('#divWord').text("Hello" + words);
+	}
+</script>
+<body>
+
+<Button id="newButton" onclick="setNewWord()">Get new word</Button>
+<div id="divWord"/>
+
+</body>
+</html>
