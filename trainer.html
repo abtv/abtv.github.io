@@ -9,8 +9,16 @@
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
 	client.onreadystatechange = function() { 
-		words = client.responseText.split('\n'); 
-		$('#divWord').text(words[0].split('\t')[0]);
+		words = client.responseText
+		.split('\n')
+		.map(function(el){
+			return {
+				foreign: el[0],
+				pronunciation: el[1],
+				motherTongue: el[2]
+			}
+		}); 
+		$('#divWord').text(words[0].foreign);
 	};
 	client.send();
 
