@@ -23,7 +23,8 @@
 	client.send();
 
 	function setNewWord(){
-		$('#divWord').text("Hello" + words);
+		var index = Math.floor(Math.random() * words.length - 1);
+		$('#divWord').text("Hello" + words[index]);
 	}
 </script>
 <body>
