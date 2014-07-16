@@ -4,42 +4,39 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <script src="./javascripts/jquery-2.1.1.min.js"></script>
-    <script src="./javascripts/main.js"></script>
   </head>
+<script src="./javascripts/jquery-2.1.1.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<style>
+    .starter-template {
+  padding: 40px 15px;
+  text-align: center;}
+  .left {
+    width: 300px;
+  }
+</style>
+<body>
+<div class="container">
+      <div class="starter-template">
+        <h3>I like to learn English</h3>
 
-  <body>
+        <a type="button" class="btn btn-primary" href="index.html">Main page</a>
+        <a type="button" class="btn btn-success" href="trainer.html">My personal trainer</a>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title"/>
-          <h2 id="project_tagline"/>
-        </header>
-    </div>
+        <div class="left">
+            <h4>16.07.2014 Conditional sentences</h4>
+            <a type="button" class="btn btn-info" href="http://www.ego4u.com/en/cram-up/grammar/conditional-sentences" class="btn btn-default btn-lg" role="button">Conditional sentences</a></br>
+            </br>            
+        </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        
-  
-	    <a href="index.html">&lt;&lt; Go to main page </a>
 
-		</br>
-		</br>
-		</br>
-
-		<h2>English page</h2>
-
-    <h4>16.07.2014 Conditional sentences</h4>
-    <a href="http://www.ego4u.com/en/cram-up/grammar/conditional-sentences">Conditional sentences</a></br>
-    </br>
 
 
     <h4>15.07.2014 At a hotel</h4>
-    <a href="http://english-da.ru/dialogi/hotel">At a hotel</a></br>
-    <a href="http://www.vocabulary.cl/Lists/Hotel-Dialogues.htm">Hotel dialogues</a></br>
+    <a type="button" class="btn btn-danger" href="http://english-da.ru/dialogi/hotel">At a hotel</a></br>
+    <a type="button" class="btn btn-danger" href="http://www.vocabulary.cl/Lists/Hotel-Dialogues.htm">Hotel dialogues</a></br>
     <a href="http://www.dinternal.com.ua/english-for-tourist/hotel/hotel-check-in/">Hotel check-in</a></br>
     </br>
 
@@ -69,7 +66,7 @@
     <a href="http://www.newslinq.com/cat-picture/">You must see me!</a></br></br>
 
 
-	<h4>21.06.2014 The status civilization</h4>
+    <h4>21.06.2014 The status civilization</h4>
     <a href="The status civilization.pdf">Read me!</a></br></br>
     
 
@@ -90,7 +87,7 @@
 
     <h4>04.06.2014 English articles</h4>
     Rules:</br>
-		<a href="http://www.english-at-home.com/grammar/articles/">The first unit</a></br>		
+        <a href="http://www.english-at-home.com/grammar/articles/">The first unit</a></br>      
     <a href="http://www.grammarbank.com/articles.html">The second unit</a></br>
     Excercises:</br>
     <a href="http://www.english-at-home.com/exercise-articles/">The first unit: A famous detective and his deputy</a></br>
@@ -114,7 +111,25 @@
     <a href="http://www.englishclub.com/grammar/prepositions-at-in-on-time.htm">Prepositions of time</a></br>
     <a href="http://www.learnamericanenglishonline.com/Red%20Level/R8_Many_and_Much.html">"How many" or "how much"?</a></br>
     <a href="http://www.learnamericanenglishonline.com/Red%20Level/R9_a_few_and_a_little.html">"A few" or "a little"?</a></br>
+
+      </div>
+
+
+</div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+  
+	    
+
+    
 	  </section>
 	</div>
+    <script>
+    $("a").attr("type", "button");
+    $("a").attr("class", "btn btn-primary");
+</script>
   </body>
 </html>
