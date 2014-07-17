@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="icon" 
       type="image/png" 
       href="icon.png">
-
     <script src="./javascripts/jquery-2.1.1.min.js"></script>
     <script src="./javascripts/main.js"></script>
   </head>
-
+  <style>
+  .starter-template {
+  	padding-top: 40px;
+  	padding-bottom: 40px;
+  padding-left: 120px;
+  max-width: 75%;
+  text-align: justify;}
+  .linkbutton{
+  	min-width: 350px; margin: 1px;
+  }
+</style>
+<script src="./javascripts/menu.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		createMenu("index.html");
+	});
+</script>
   <body>
+    <div class="container">
+      <div class="starter-template">
+      <h2>Technical blog</h2>
+        </br>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title"/>
-          <h2 id="project_tagline"/>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-  
-  		&lt;&lt; Still not exists
-  		&nbsp;&nbsp;&nbsp;
-	    <a href="index2.html">Go to Javascript days and Scala week &gt;&gt; </a>
-
-		</br>
+	    <a class="btn btn-primary" href="index2.html">Go to Javascript days</a>
+	    </br>
 		</br>
 		</br>
 
@@ -295,7 +298,7 @@
 			4. Features must work correctly.</br>
 			5. Don't repeat competitors.
 		</div>
-	  </section>
+	  </div>
 	</div>
   </body>
 </html>
