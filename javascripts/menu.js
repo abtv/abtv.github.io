@@ -9,7 +9,7 @@ function createMenu(currentPage){
       var navbarHeader = $('<div />').appendTo(container);
       navbarHeader.attr("class", "navbar-header");
 
-        var navbarBrand = $('<div />').appendTo(container);
+        var navbarBrand = $('<div />').appendTo(navbarHeader);
         navbarBrand.attr("class", "navbar-brand");
         navbarBrand.text("abtv's blog");
 
