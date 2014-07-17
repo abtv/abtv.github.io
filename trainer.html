@@ -11,6 +11,7 @@
 ;}
 </style>
 <script src="./javascripts/jquery-2.1.1.min.js"></script>
+<script src="./javascripts/menu.js"></script>
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 	var words;
@@ -45,6 +46,11 @@
 		setNewWord();
 	};
 	client.send();
+</script>
+<script>
+	$(document).ready(function(){
+		createMenu("trainer.html");
+	});
 </script>
 <body>
 <div class="container">
