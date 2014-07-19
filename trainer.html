@@ -26,6 +26,10 @@
 		showCurrent();
 	}
 	function showCurrent(){
+		if (currentWord == undefined){
+			return;
+		}
+
 		var text;
 		if (isForeign){
 			text = isShowPronunciation ? currentWord.foreign + " " + currentWord.pronunciation : currentWord.foreign;
@@ -39,23 +43,25 @@
 		isForeign = !isForeign;
 		showCurrent();
 	}
-	var client = new XMLHttpRequest();
-	client.open('GET', '/dict.txt');
-	client.onreadystatechange = function() { 
-		words = client.responseText
-		.split('\n')
-		.map(function(el){
-			var word = el.split('\t');
-			return {
-				foreign: word[0],
-				pronunciation: word[1],
-				motherTongue: word[2]
-			};
-		}); 
-		setNewWord();
-	};
-	client.send();
-
+	function downloadWords(fileName){
+		var client = new XMLHttpRequest();
+		client.open('GET', '/' + fileName);
+		client.onreadystatechange = function() { 
+			words = client.responseText
+			.split('\n')
+			.map(function(el){
+				var word = el.split('\t');
+				return {
+					foreign: word[0],
+					pronunciation: word[1],
+					motherTongue: word[2]
+				};
+			}); 
+			setNewWord();
+			showCurrent();
+		};
+		client.send();
+	}
 	function showPronunciation(show){
 		isShowPronunciation = show;
 		if (show){
@@ -66,13 +72,17 @@
 			$("#showPron").removeClass();
 			$("#dontShowPron").addClass("btn btn-info");
 		}
-		showCurrent();
+		if (currentWord != undefined){
+			showCurrent();	
+		}
 	}
 </script>
 <script>
 	$(document).ready(function(){
 		createMenu("trainer.html");
-		showPronunciation(true);
+		//isShowPronunciation = false;
+		showPronunciation(false);
+		$("#easyWords").trigger("click");
 	});
 </script>
 <body>
@@ -83,9 +93,8 @@
 	    <div class="dropdown">
 	      <a href="#" class="btn btn-lg btn-success" data-toggle="dropdown">Options</a>
 	      <ul class="dropdown-menu" role="menu">
-	        <li><a href="#" class="btn btn-lg btn-success">Easy words</a></li>
-	        <li><a href="#" class="btn btn-warning">Normal words</a></li>
-	        <li><a href="#" class="btn btn-danger">Hard words</a></li>
+	        <li><a id="easyWords" href="#" class="btn btn-lg btn-success" onclick="downloadWords('dict.txt')">Easy words</a></li>
+	        <li><a id="normalWords" href="#" class="btn btn-warning" onclick="downloadWords('dict_medium.txt')">Normal words</a></li>
 	        <li class="divider"></li>
 	        <li><a id="showPron" href="#" onclick="showPronunciation(true)">Show pronunciation</a></li>
 	        <li><a id="dontShowPron" href="#" onclick="showPronunciation(false)">Don't show pronunciation</a></li>
