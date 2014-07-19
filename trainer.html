@@ -16,20 +16,28 @@
 <script type="text/javascript" charset="utf-8">
 	var words;
 	var currentWord;
+	var isForeign;
+	var isShowPronunciation;
 	function setNewWord(){
 		var index = Math.floor(Math.random() * words.length - 1);
 		if (index < 0){ return; }
 		currentWord = words[index];
-		$('#divWord').text(currentWord.foreign);
+		isForeign = true;
+		showCurrent();
 	}
-	function switchText(){
-		var text = $('#divWord').text();
-		if (currentWord.foreign == text){
-			$('#divWord').text(currentWord.motherTongue);
+	function showCurrent(){
+		var text;
+		if (isForeign){
+			text = isShowPronunciation ? currentWord.foreign + " " + currentWord.pronunciation : currentWord.foreign;
 		}
 		else {	
-			$('#divWord').text(currentWord.foreign);
+			text = currentWord.motherTongue;
 		}
+		$('#divWord').text(text);
+	}
+	function switchText(){
+		isForeign = !isForeign;
+		showCurrent();
 	}
 	var client = new XMLHttpRequest();
 	client.open('GET', '/dict.txt');
@@ -39,27 +47,55 @@
 		.map(function(el){
 			var word = el.split('\t');
 			return {
-				foreign: word[0] + " " + word[1],
+				foreign: word[0],
+				pronunciation: word[1],
 				motherTongue: word[2]
 			};
 		}); 
 		setNewWord();
 	};
 	client.send();
+
+	function showPronunciation(show){
+		isShowPronunciation = show;
+		if (show){
+			$("#showPron").addClass("btn btn-info");
+			$("#dontShowPron").removeClass();
+		}
+		else {
+			$("#showPron").removeClass();
+			$("#dontShowPron").addClass("btn btn-info");
+		}
+		showCurrent();
+	}
 </script>
 <script>
 	$(document).ready(function(){
 		createMenu("trainer.html");
+		showPronunciation(true);
 	});
 </script>
 <body>
-<div class="container">
-      <div class="starter-template">
-        <h2>My personal English trainer</h2>
-		<Button id="newButton" class="btn btn-lg btn-success" onclick="setNewWord()">know word</Button>
-		<Button id="dontKnowButton" class="btn btn-lg btn-warning" onclick="switchText()">don't know word</Button>
-		<div style="padding: 10px;font-size: 18pt" id="divWord"/>
-      </div>
+	<div class="container">	
+		<div class="starter-template">
+	        <h2>My personal English trainer</h2>
+    	</div>
+	    <div class="dropdown">
+	      <a href="#" class="btn btn-lg btn-success" data-toggle="dropdown">Options</a>
+	      <ul class="dropdown-menu" role="menu">
+	        <li><a href="#" class="btn btn-lg btn-success">Easy words</a></li>
+	        <li><a href="#" class="btn btn-warning">Normal words</a></li>
+	        <li><a href="#" class="btn btn-danger">Hard words</a></li>
+	        <li class="divider"></li>
+	        <li><a id="showPron" href="#" onclick="showPronunciation(true)">Show pronunciation</a></li>
+	        <li><a id="dontShowPron" href="#" onclick="showPronunciation(false)">Don't show pronunciation</a></li>
+	      </ul>
+	    </div>
+	    <div class="starter-template">
+			<Button id="newButton" class="btn btn-lg btn-success" onclick="setNewWord()">know word</Button>
+			<Button id="dontKnowButton" class="btn btn-lg btn-warning" onclick="switchText()">don't know word</Button>
+		  	<div style="padding: 10px;font-size: 18pt" id="divWord"/>
+    	</div>
     </div>
 </body>
 </html>
