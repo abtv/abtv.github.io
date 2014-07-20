@@ -45,7 +45,7 @@
 	}
 	function downloadWords(fileName){
 		var client = new XMLHttpRequest();
-		client.open('GET', '/' + fileName);
+		client.open('GET', '/' + fileName + ".txt");
 		client.onreadystatechange = function() { 
 			words = client.responseText
 			.split('\n')
@@ -57,6 +57,7 @@
 					motherTongue: word[2]
 				};
 			}); 
+			$("#file").text($("#" + fileName).text());
 			setNewWord();
 			showCurrent();
 		};
@@ -64,14 +65,14 @@
 	}
 	function showPronunciation(show){
 		isShowPronunciation = show;
+		var text;
 		if (show){
-			$("#showPron").addClass("btn btn-info");
-			$("#dontShowPron").removeClass();
+			text = $("#showPron").text();
 		}
 		else {
-			$("#showPron").removeClass();
-			$("#dontShowPron").addClass("btn btn-info");
+			text = $("#dontShowPron").text();
 		}
+		$("#pronOptions").text(text);
 		if (currentWord != undefined){
 			showCurrent();	
 		}
@@ -80,9 +81,9 @@
 <script>
 	$(document).ready(function(){
 		createMenu("trainer.html");
-		//isShowPronunciation = false;
 		showPronunciation(false);
 		$("#easyWords").trigger("click");
+		$("#easy").trigger('click');
 	});
 </script>
 <body>
@@ -90,16 +91,28 @@
 		<div class="starter-template">
 	        <h2>My personal English trainer</h2>
     	</div>
-	    <div class="dropdown">
-	      <a href="#" class="btn btn-lg btn-success" data-toggle="dropdown">Options</a>
-	      <ul class="dropdown-menu" role="menu">
-	        <li><a id="easyWords" href="#" class="btn btn-lg btn-success" onclick="downloadWords('dict.txt')">Easy words</a></li>
-	        <li><a id="normalWords" href="#" class="btn btn-warning" onclick="downloadWords('dict_medium.txt')">Normal words</a></li>
-	        <li class="divider"></li>
-	        <li><a id="showPron" href="#" onclick="showPronunciation(true)">Show pronunciation</a></li>
-	        <li><a id="dontShowPron" href="#" onclick="showPronunciation(false)">Don't show pronunciation</a></li>
-	      </ul>
-	    </div>
+
+    	<div class="collapse navbar-collapse" style="text-align: center;">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+				  <a href="#" id="file" class="btn btn-default" data-toggle="dropdown">Options</a>
+				  <ul class="dropdown-menu" role="menu">
+				    <li><a id="easy" href="#" class="btn btn-default" onclick="downloadWords('easy')">Easy words</a></li>
+				    <li><a id="medium" href="#" class="btn btn-default" onclick="downloadWords('medium')">Normal words</a></li>
+				    <li><a id="more" href="#" class="btn btn-default" onclick="downloadWords('more')">More words</a></li>
+				  </ul>
+				</li>
+
+				<li class="dropdown">
+				  <a href="#" id="pronOptions" class="btn btn-default" data-toggle="dropdown">Options</a>
+				  <ul class="dropdown-menu" role="menu">
+				    <li><a id="showPron" href="#" onclick="showPronunciation(true)">Show pronunciation</a></li>
+				    <li><a id="dontShowPron" href="#" onclick="showPronunciation(false)">Don't show pronunciation</a></li>
+				  </ul>
+				</li>
+			</ul>
+    	</div><!-- /.navbar-collapse -->
+
 	    <div class="starter-template">
 			<Button id="newButton" class="btn btn-lg btn-success" onclick="setNewWord()">know word</Button>
 			<Button id="dontKnowButton" class="btn btn-lg btn-warning" onclick="switchText()">don't know word</Button>
