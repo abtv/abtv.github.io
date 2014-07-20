@@ -24,7 +24,7 @@ hurl	/hə:l/	сильный бросок; метать
 hyphen	/'haɪfən/	дефис, соединительная чёрточка; писать через дефис
 immense	/ɪ'mens/	огромный, безмерный
 immersion	/ɪ'mə:ʃən/	погружение
-implication	/,ɪmplɪ'keɪʃən/	вовлечение
+implication	/,ɪmplɪ'keɪʃən/	вывод, следствие
 imply	/ɪm'plaɪ/	заключать в себе, значить
 impose	/ɪm'pəuz/	навязать(ся)
 intervene	/,ɪntə(:)'vi:n/	вмешиваться
