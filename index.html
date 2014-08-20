@@ -60,6 +60,17 @@
 			sudo service mongod stop</br>
 			</br>
 
+			//Connect to server via ssh</br>
+			ssh user_name@your_ip</br>
+			//Upload file via ssh from local host to remote one</br>
+			scp path_to_local_file_or_dirs user_name@remote_ip:path_to_destination_dir</br>
+			scp some_file.txt root@10.10.10.10:/root.myfiles/</br>
+			//Download file via ssh from remote host to local one</br>
+			scp user_name@remote_ip:path_to_source_file path_to_local_dir </br>
+			scp root@10.10.10.10:/root.myfiles/some_file.txt ~/</br>
+			</br>
+
+
 		</div>
 		</br></br>
 
