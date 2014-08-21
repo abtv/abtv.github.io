@@ -41,8 +41,38 @@
 
 		19.08.2014
 
+
+
 		<h3 id="is37">Issue 38: Ubuntu pack</h3>
 		<div>
+			//Connect to server via ssh</br>
+			ssh user_name@your_ip</br>
+			//Upload file via ssh from local host to remote one</br>
+			scp path_to_local_file_or_dirs user_name@remote_ip:path_to_destination_dir</br>
+			scp some_file.txt root@10.10.10.10:/root.myfiles/</br>
+			//Download file via ssh from remote host to local one</br>
+			scp user_name@remote_ip:path_to_source_file path_to_local_dir </br>
+			scp root@10.10.10.10:/root.myfiles/some_file.txt ~/</br>
+			</br>
+
+			//Changing password</br>
+			passwd</br>
+
+			//Creating a New User</br>
+			adduser andrew</br>
+
+			//Adding root Privileges</br>
+			visudo</br>
+			Scroll down until you find a section that deals with user privileges. It will look similar to this:</br>
+			# User privilege specification</br>
+			root    ALL=(ALL:ALL) ALL</br>
+			Add another line below it that follows the format:</br>
+			# User privilege specification</br>
+			root      ALL=(ALL:ALL) ALL</br>
+			andrew    ALL=(ALL:ALL) ALL</br>
+			After this is done, press CTRL-X to exit. You will have to type "Y" to save the file and then press "ENTER" to confirm the file location.</br>
+
+
 			//Open JDK</br>
 			sudo apt-get update</br>
 			sudo apt-get install openjdk-7-jdk</br>
@@ -60,15 +90,10 @@
 			sudo service mongod stop</br>
 			</br>
 
-			//Connect to server via ssh</br>
-			ssh user_name@your_ip</br>
-			//Upload file via ssh from local host to remote one</br>
-			scp path_to_local_file_or_dirs user_name@remote_ip:path_to_destination_dir</br>
-			scp some_file.txt root@10.10.10.10:/root.myfiles/</br>
-			//Download file via ssh from remote host to local one</br>
-			scp user_name@remote_ip:path_to_source_file path_to_local_dir </br>
-			scp root@10.10.10.10:/root.myfiles/some_file.txt ~/</br>
-			</br>
+			//Installing nginx</br>
+			sudo apt-get update</br>
+			sudo apt-get install nginx</br>
+			
 
 
 		</div>
