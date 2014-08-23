@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="icon" 
+      type="image/png" 
+      href="icon.png">
+    <script src="./javascripts/jquery-2.1.1.min.js"></script>
+    <script src="./javascripts/main.js"></script>
+  </head>
+  <style>
+  .starter-template {
+  	padding-top: 40px;
+  	padding-bottom: 40px;
+  padding-left: 120px;
+  max-width: 75%;
+  text-align: justify;}
+  .linkbutton{
+  	min-width: 350px; margin: 1px;
+  }
+</style>
+<script src="./javascripts/menu.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		createMenu("ubuntu.html");
+	});
+</script>
+  <body>
+    <div class="container">
+      <div class="starter-template">
+      <h2>Ubuntu</h2>
+        </br>
+
+		<h3 id="is1">Issue 1: How to connect to the server via ssh</h3>
+		<div>
+			//Connect to the server via ssh</br>
+			ssh user_name@your_ip</br>
+			//Upload file via ssh from local host to remote one</br>
+			scp path_to_local_file_or_dirs user_name@remote_ip:path_to_destination_dir</br>
+			scp some_file.txt root@10.10.10.10:/root.myfiles/</br>
+			//Download the file via ssh from the remote host to local one</br>
+			scp user_name@remote_ip:path_to_source_file path_to_local_dir </br>
+			scp root@10.10.10.10:/root.myfiles/some_file.txt ~/
+		</div>
+
+		<h3 id="is2">Issue 2: Users management</h3>
+		<div>
+			//Changing password</br>
+			passwd</br>
+
+			//Creating a New User</br>
+			adduser andrew</br>
+
+			//Adding root Privileges</br>
+			visudo</br>
+			Scroll down until you find a section that deals with user privileges. It will look similar to this:</br>
+			# User privilege specification</br>
+			root    ALL=(ALL:ALL) ALL</br>
+			Add another line below it that follows the format:</br>
+			# User privilege specification</br>
+			root      ALL=(ALL:ALL) ALL</br>
+			andrew    ALL=(ALL:ALL) ALL</br>
+			After this is done, press CTRL-X to exit. You will have to type "Y" to save the file and then press "ENTER" to confirm the file location.
+		</div>
+		
+
+		<h3 id="is3">Issue 3: How to install JDK</h3>
+		<div>
+			//Open JDK</br>
+			sudo apt-get update</br>
+			sudo apt-get install openjdk-7-jdk</br>
+			java -version</br></br>
+
+			//Don't forget install htop. It's very useful!</br>
+			sudo apt-get install htop
+		</div>
+
+		<h3 id="is4">Issue 4: How to install Mongodb</h3>
+		<div>
+			//Mongodb</br>
+			sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</br>
+			echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</br>
+			sudo apt-get update</br>
+			sudo apt-get install mongodb-org</br>
+			Now you can type 'mongo' in command line</br>
+			//and controls:</br>
+			sudo service mongod start</br>
+			sudo service mongod stop
+		</div>
+
+		<h3 id="is5">Issue 5: How to install Nginx</h3>
+		<div>
+			sudo apt-get update</br>
+			sudo apt-get install nginx
+		</div>
+
+		<h3 id="is6">Issue 6: How to uninstall package</h3>
+		<div>
+			sudo apt-get purge package_name
+		</div>
+
+		<h3 id="is7">Issue 7: How to install nodejs and npm</h3>
+		<div>
+			sudo apt-get install python-software-properties</br>
+			sudo apt-add-repository ppa:chris-lea/node.js</br>
+			sudo apt-get update</br>
+			sudo apt-get install nodejs</br>
+			node -v </br>
+			npm -v </br>
+		</div>
+		</br></br>
+	  </div>
+	</div>
+
+
+	<!-- Yandex.Metrika informer -->
+	<a href="https://metrika.yandex.ru/stat/?id=25630463&amp;from=informer"
+	target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/25630463/3_0_3EB0FFFF_1E90FFFF_0_pageviews"
+	style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:25630463,lang:'ru'});return false}catch(e){}"/></a>
+	<!-- /Yandex.Metrika informer -->
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter25630463 = new Ya.Metrika({id:25630463,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/25630463" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+  </body>
+</html>
