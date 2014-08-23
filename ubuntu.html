@@ -91,10 +91,19 @@
 			sudo service mongod stop
 		</div>
 
-		<h3 id="is5">Issue 5: How to install Nginx</h3>
+		<h3 id="is5">Issue 5: How to install and configure Nginx</h3>
 		<div>
-			sudo apt-get update</br>
-			sudo apt-get install nginx
+			sudo apt-get install nginx</br>
+			sudo mkdir -p /var/www/news/public_html</br>
+			sudo chown -R andrew:andrew /var/www/news/public_html</br>
+			sudo chmod 755 /var/www</br>
+			sudo nano /var/www/news/public_html/index.html</br>
+			sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/news</br>
+			//Let's configure our site</br>
+			sudo nano /etc/nginx/sites-available/news</br>
+			sudo ln -s /etc/nginx/sites-available/news /etc/nginx/sites-enabled/news</br>
+			sudo rm /etc/nginx/sites-enabled/default</br>
+			sudo service nginx restart
 		</div>
 
 		<h3 id="is6">Issue 6: How to uninstall package</h3>
