@@ -21,6 +21,8 @@ function createMenu(currentPage){
 
           var liIndex = createMenuItem("index.html", "Technical blog", currentPage);
           liIndex.appendTo(navbarNav);
+          var liUbuntu = createMenuItem("ubuntu.html", "Ubuntu", currentPage);
+          liUbuntu.appendTo(navbarNav);
           var liEnglish = createMenuItem("english.html", "English blog", currentPage);
           liEnglish.appendTo(navbarNav);
           var liTrainer = createMenuItem("trainer.html", "My personal English trainer", currentPage);
