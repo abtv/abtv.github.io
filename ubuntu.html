@@ -34,7 +34,67 @@
       <h2>Ubuntu</h2>
         </br>
 
-		<h3 id="is1">Issue 1: How to connect to the server via ssh</h3>
+        <h3 id="is1">How to change PuTTY settings</h3>
+		<div>
+			Window > Appearance, choose ClearType and Lucida Console font, 12-point.</br>
+			Window > Colours and select ANSI Blue in the Select a colour to adjust to Red:74 Green:74 Blue:255 and do the same for ANSI Blue Bold to Red:140 Green:140 Blue:255.
+		</div>
+
+		<h3 id="ishelp">How to get program's help</h3>
+		<div>
+			program_name --help
+		</div>
+
+        <h3 id="is2">How to manipulate files</h3>
+		<div>
+			<ul>
+				<li>cp - copy files and directories</li>
+				<li>mv - move or rename files and directories</li>
+				<li>rm - remove files and directories</li>
+				<li>mkdir - create directories</li>
+			</ul>
+			//Copy a single file</br>
+			cp file1 file2</br>
+			//Copy multiple files to a different directory</br>
+			cp file1 file2 file3 directory</br>
+			//Copy all the HTML files from one directory to another</br>
+			cp *.html destination</br>
+			//Rename file</br>
+			mv filename1 filename2</br>
+			//Move files to a different directory</br>
+			mv file1 file2 file3 directory</br>
+			//Remove a file</br>
+			rm file</br>
+			//Remove a directory</br>
+			rm -r directory</br>
+			//Delete directories with content </br>
+			rm -r dir1 dir2</br>
+			//Generate all the parents for the new directory </br>
+			mkdir -p /var/www/example.com/public_html
+		</div>
+
+		<h3 id="is3">How to connect to the server via ssh</h3>
+		<div>
+			//Connect to the server via ssh</br>
+			ssh user_name@your_ip</br>
+			//Upload file via ssh from local host to remote one</br>
+			scp path_to_local_file_or_dirs user_name@remote_ip:path_to_destination_dir</br>
+			scp some_file.txt root@10.10.10.10:/root.myfiles/</br>
+			//Download the file via ssh from the remote host to local one</br>
+			zip archivefile1 doc1 doc2 doc3
+		</div>
+
+		<h3 id="iszip">How to archive files</h3>
+		<div>
+			//Install zip program</br>
+			sudo apt-get install zip</br>
+			//Install unzip program</br>
+			sudo apt-get install unzip</br>
+			//Archive 3 files</br>
+			zip archivefile1 doc1 doc2 doc3
+		</div>
+
+		<h3 id="is3">How to connect to the server via ssh</h3>
 		<div>
 			//Connect to the server via ssh</br>
 			ssh user_name@your_ip</br>
@@ -46,7 +106,7 @@
 			scp root@10.10.10.10:/root.myfiles/some_file.txt ~/
 		</div>
 
-		<h3 id="is2">Issue 2: Users management</h3>
+		<h3 id="is4">Users management</h3>
 		<div>
 			//Changing password</br>
 			passwd</br>
@@ -66,8 +126,7 @@
 			After this is done, press CTRL-X to exit. You will have to type "Y" to save the file and then press "ENTER" to confirm the file location.
 		</div>
 		
-
-		<h3 id="is3">Issue 3: How to install JDK</h3>
+		<h3 id="is5">How to install JDK</h3>
 		<div>
 			//Open JDK</br>
 			sudo apt-get update</br>
@@ -78,7 +137,7 @@
 			sudo apt-get install htop
 		</div>
 
-		<h3 id="is4">Issue 4: How to install Mongodb</h3>
+		<h3 id="is6">How to install Mongodb</h3>
 		<div>
 			//Mongodb</br>
 			sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</br>
@@ -91,7 +150,7 @@
 			sudo service mongod stop
 		</div>
 
-		<h3 id="is5">Issue 5: How to install and configure Nginx</h3>
+		<h3 id="is7">How to install and configure Nginx</h3>
 		<div>
 			sudo apt-get install nginx</br>
 			sudo mkdir -p /var/www/news/public_html</br>
@@ -106,12 +165,12 @@
 			sudo service nginx restart
 		</div>
 
-		<h3 id="is6">Issue 6: How to uninstall package</h3>
+		<h3 id="is8">How to uninstall package</h3>
 		<div>
 			sudo apt-get purge package_name
 		</div>
 
-		<h3 id="is7">Issue 7: How to install nodejs and npm</h3>
+		<h3 id="is9">How to install nodejs and npm</h3>
 		<div>
 			sudo apt-get install python-software-properties</br>
 			sudo apt-add-repository ppa:chris-lea/node.js</br>
@@ -121,7 +180,7 @@
 			npm -v </br>
 		</div>
 
-		<h3 id="is8">Issue 8: How to unzip archive</h3>
+		<h3 id="is10">How to unzip archive</h3>
 		<div>
 			//Firstly, if you don't have unzip, you'll need to install it</br>
 			sudo apt-get install unzip</br>
