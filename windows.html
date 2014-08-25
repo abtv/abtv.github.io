@@ -34,6 +34,11 @@
       <h2>Windows</h2>
         </br>
 
+        <h3 id="is_change_drive">How to change drive</h3>
+		<div>
+			cd /d letter: (for example cd /d d:)
+		</div>
+
         <h3 id="is_putty">How to change PuTTY settings</h3>
 		<div>
 			1. Download PuTTY from <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Downloads page</a> and copy it to C:\Program Files x86\Putty\</br>
@@ -48,8 +53,18 @@
 			3. Run cmd and type "md \data\db" (this creates default directory \data\db; alternatively you can use C:\mongodb\bin\mongod.exe --dbpath "d:\test\mongo db data")</br>
 			4. run C:\mongodb\bin\mongod.exe (this starts mongo's main program)</br>
 			5. run C:\mongodb\bin\mongo.exe (if you like console)</br>
-			6. install Robomongo from <a href="http://robomongo.org/download.html">here (if you like applications)</a> 
-			</br>
+			6. install Robomongo from <a href="http://robomongo.org/download.html">here</a>(if you like applications)</br>
+		</div>
+
+		<h3 id="ismongodb">How to install and configure maven</h3>
+		<div>
+			1. Open <a href="http://maven.apache.org/download.cgi">Maven downloads page</a> and download binary zip.</br>
+			2. Extract apache-maven***.zip to c:\maven directory.</br>
+			3. Open "Environmaent variables" and set JAVA_HOME to "C:\Program Files\Java\jdk1.7.0_67" (or your java version).</br>
+			4. Open "Environmaent variables" and set MAVEN_HOME to "C:\maven".</br>
+			5. To run maven from command prompt, it is necessary to update the PATH variable with Maven’s installation bin directory. Just Open "Environmaent variables" and append to PATH variable value "C:\maven\bin" (don't forget semicolon before value).</br>
+			6. Check that all installed correctly "mvn -version"</br>
+			7. To create jar type "mvn package" in directory where your pom.xml are located.
 		</div>
 	  </div>
 	</div>
