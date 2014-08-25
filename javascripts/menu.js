@@ -3,30 +3,32 @@ function createMenu(currentPage){
   navbar.attr("class", "navbar-inverse navbar-fixed-top");
   navbar.attr("role", "navigation");
 
-    var container = $('<div />').appendTo(navbar);
-    container.attr("class", "container");
+  var container = $('<div />').appendTo(navbar);
+  container.attr("class", "container");
 
-      var navbarHeader = $('<div />').appendTo(container);
-      navbarHeader.attr("class", "navbar-header");
+  var navbarHeader = $('<div />').appendTo(container);
+  navbarHeader.attr("class", "navbar-header");
 
-        var navbarBrand = $('<div />').appendTo(navbarHeader);
-        navbarBrand.attr("class", "navbar-brand");
-        navbarBrand.text("abtv's blog");
+  var navbarBrand = $('<div />').appendTo(navbarHeader);
+  navbarBrand.attr("class", "navbar-brand");
+  navbarBrand.text("abtv's blog");
 
-      var navbarCollapse = $('<div />').appendTo(container);
-      navbarCollapse.attr("class", "collapse navbar-collapse");
+  var navbarCollapse = $('<div />').appendTo(container);
+  navbarCollapse.attr("class", "collapse navbar-collapse");
 
-        var navbarNav = $('<ul />').appendTo(navbarCollapse);
-        navbarNav.attr("class", "nav navbar-nav");
+  var navbarNav = $('<ul />').appendTo(navbarCollapse);
+  navbarNav.attr("class", "nav navbar-nav");
 
-          var liIndex = createMenuItem("index.html", "Technical blog", currentPage);
-          liIndex.appendTo(navbarNav);
-          var liUbuntu = createMenuItem("ubuntu.html", "Ubuntu", currentPage);
-          liUbuntu.appendTo(navbarNav);
-          var liEnglish = createMenuItem("english.html", "English blog", currentPage);
-          liEnglish.appendTo(navbarNav);
-          var liTrainer = createMenuItem("trainer.html", "My personal English trainer", currentPage);
-          liTrainer.appendTo(navbarNav);
+  var liIndex = createMenuItem("index.html", "Technical blog", currentPage);
+  liIndex.appendTo(navbarNav);
+  var liUbuntu = createMenuItem("ubuntu.html", "Ubuntu", currentPage);
+  liUbuntu.appendTo(navbarNav);
+  var liWindows = createMenuItem("windows.html", "Windows", currentPage);
+  liWindows.appendTo(navbarNav);
+  var liEnglish = createMenuItem("english.html", "English blog", currentPage);
+  liEnglish.appendTo(navbarNav);
+  var liTrainer = createMenuItem("trainer.html", "My personal English trainer", currentPage);
+  liTrainer.appendTo(navbarNav);
   $('<br />').appendTo('navbar');
   $('<br />').appendTo('navbar');
 }
