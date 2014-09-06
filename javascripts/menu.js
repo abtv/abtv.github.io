@@ -19,15 +19,13 @@ function createMenu(currentPage){
   var navbarNav = $('<ul />').appendTo(navbarCollapse);
   navbarNav.attr("class", "nav navbar-nav");
 
-  var liIndex = createMenuItem("index.html", "Technical blog", currentPage);
-  liIndex.appendTo(navbarNav);
+  var liEnglish = createMenuItem("index.html", "English", currentPage);
+  liEnglish.appendTo(navbarNav);
   var liUbuntu = createMenuItem("ubuntu.html", "Ubuntu", currentPage);
   liUbuntu.appendTo(navbarNav);
   var liWindows = createMenuItem("windows.html", "Windows", currentPage);
   liWindows.appendTo(navbarNav);
-  var liEnglish = createMenuItem("english.html", "English blog", currentPage);
-  liEnglish.appendTo(navbarNav);
-  var liTrainer = createMenuItem("trainer.html", "My personal English trainer", currentPage);
+  var liTrainer = createMenuItem("trainer.html", "English trainer", currentPage);
   liTrainer.appendTo(navbarNav);
   $('<br />').appendTo('navbar');
   $('<br />').appendTo('navbar');
