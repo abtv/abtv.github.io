@@ -21,12 +21,14 @@ function createMenu(currentPage){
 
   var liEnglish = createMenuItem("index.html", "English", currentPage);
   liEnglish.appendTo(navbarNav);
+  var liTrainer = createMenuItem("trainer.html", "English trainer", currentPage);
+  liTrainer.appendTo(navbarNav);
   var liUbuntu = createMenuItem("ubuntu.html", "Ubuntu", currentPage);
   liUbuntu.appendTo(navbarNav);
   var liWindows = createMenuItem("windows.html", "Windows", currentPage);
   liWindows.appendTo(navbarNav);
-  var liTrainer = createMenuItem("trainer.html", "English trainer", currentPage);
-  liTrainer.appendTo(navbarNav);
+  var liMaven = createMenuItem("maven.html", "Maven", currentPage);
+  liMaven.appendTo(navbarNav);
   $('<br />').appendTo('navbar');
   $('<br />').appendTo('navbar');
 }
