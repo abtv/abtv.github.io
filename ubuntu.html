@@ -205,7 +205,9 @@
 			//Firstly, if you don't have unzip, you'll need to install it</br>
 			sudo apt-get install unzip</br>
 			//Then you need to unzip archive</br>
-			unzip
+			unzip</br>
+			//Unzip to a folder</br>
+			unzip file.zip -d destination_folder
 		</div>
 
 		<h3 id="is_tmux">How to use tmux</h3>
@@ -245,19 +247,39 @@
 		</div>
 
 		<h3 id="is_vim">Usage of Vim</h3>
-			<div>
-				hjkl - cursor movements <br>
-				i - edit mode<br>
-				Esc - exit from edit mode<br>
-				x - delete current symbol<br>
-				dw - delete current word<br>
-				de - delete suffix of word<br>
-				dd - delete row<br>
-				u - redo<br>
-				p - insert deleted text<br>
-				ctrl+R - cancels redo<br>
-				r then a symbol - replaces a symbol<br>
-			</div>
+		<div>
+			hjkl - cursor movements <br>
+			i - edit mode<br>
+			Esc - exit from edit mode<br>
+			x - delete current symbol<br>
+			dw - delete current word<br>
+			de - delete suffix of word<br>
+			dd - delete row<br>
+			u - redo<br>
+			p - insert deleted text<br>
+			ctrl+R - cancels redo<br>
+			r then a symbol - replaces a symbol<br>
+		</div>
+		<h3 id="is_upstart">How to use upstart</h3>
+		<div>
+			description "Your description"</br>
+			author "abtv"</br></br>
+
+			start on runlevel [2345]</br>
+			stop on runlevel [!2345]</br></br>
+
+			#It'll respawn your process if it crashes</br>
+			#If it respawns more than 10 times in 5 seconds stop it</br>
+			respawn</br>
+			respawn limit 10 5</br></br>
+
+			expect fork</br></br>
+
+			script</br>
+			    &nbsp;&nbsp;cd /home/username</br>
+			    &nbsp;&nbsp;java -jar /home/username/yourservice.jar</br>
+			end script</br>
+		</div>
 	  </div>
 	</div>
 
