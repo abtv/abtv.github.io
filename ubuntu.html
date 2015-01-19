@@ -279,8 +279,35 @@
 			script</br>
 			    &nbsp;&nbsp;cd /home/username</br>
 			    &nbsp;&nbsp;java -jar /home/username/yourservice.jar</br>
-			end script</br>
+			end script</br></br>
+
+			Stopping the service:</br>
+			sudo stop yourservice</br>
+			Starting the service:</br>
+			sudo start yourservice
 		</div>
+
+
+		<h3 id="is_postgresql">How to use postgresql</h3>
+		<div>
+			Installation:<br>
+			sudo apt-get update<br>
+			sudo apt-get install postgresql postgresql-contrib<br><br>
+
+			The installation procedure created a user account called postgres that is associated with the default Postgres role. In order to use Postgres, we'll need to log into that account. You can do that by typing:<br>
+    		sudo -i -u postgres<br>
+			You will be asked for your normal user password and then will be given a shell prompt for the postgres user.<br>
+
+			You can get a Postgres prompt immediately by typing:<br>
+			psql<br><br>
+
+			\l (\list) - shows the list of your databases<br>
+			\dt - shows the list of relations in the current database<br>
+			CREATE DATABASE DBNAME; - creates DBNAME database<br>
+			\connect DBNAME - switches to DBNAME database<br>
+		</div>
+
+		
 	  </div>
 	</div>
 
