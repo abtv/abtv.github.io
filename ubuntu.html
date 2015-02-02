@@ -305,6 +305,15 @@
 			\dt - shows the list of relations in the current database<br>
 			CREATE DATABASE DBNAME; - creates DBNAME database<br>
 			\connect DBNAME - switches to DBNAME database<br>
+
+			pg_dump database_name > some_file.sql - it creates a backup<br>
+			psql new_database_name < some_file.sql - it restores a database from a backup<br>
+
+			It appends new privileges:<br>
+			ALTER USER username WITH SUPERUSER;<br>
+			ALTER USER username WITH CREATEROLE;<br>
+			ALTER USER username WITH CREATEDB;<br>
+			ALTER USER username WITH REPLICATION;<br>
 		</div>
 
 		
