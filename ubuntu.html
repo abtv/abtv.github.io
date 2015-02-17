@@ -313,7 +313,16 @@
 			ALTER USER username WITH SUPERUSER;<br>
 			ALTER USER username WITH CREATEROLE;<br>
 			ALTER USER username WITH CREATEDB;<br>
-			ALTER USER username WITH REPLICATION;<br>
+			ALTER USER username WITH REPLICATION;<br><br>
+
+			Create a new user:<br>
+			sudo -i -u postgres<br>
+			createuser user;<br>
+
+			List of all users:<br>
+			\du<br>
+
+			ALTER ROLE "user" WITH PASSWORD 'qwerty';
 		</div>
 
 		
