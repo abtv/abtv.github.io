@@ -1,0 +1,44 @@
+body {
+    font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+    font-size: 14pt;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.code {
+    margin: 2px;
+    padding: 4px;
+    background-color: #ddd;
+}
+
+img {
+    width: 100px;
+}
+
+p {
+    text-align: justify;
+}
+
+.menu-item {
+    text-align: center;
+    min-height: 150px;
+    padding: 10px;
+}
+
+button {
+    margin: 2px;
+}
+
+.header-buttons {
+    text-align: right;
+}
