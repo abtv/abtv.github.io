@@ -1,5 +1,5 @@
 body {
-    font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+    font-family: 'PT Serif', serif;
     font-size: 14pt;
 }
 
@@ -22,23 +22,38 @@ h2 {
 }
 
 img {
-    width: 100px;
+    margin: 0 auto;
+    width: 200px;
 }
 
 p {
     text-align: justify;
+    text-indent: 40px;
+}
+
+.menu {
+    margin: 20px;
 }
 
 .menu-item {
-    text-align: center;
-    min-height: 150px;
-    padding: 10px;
+    padding: 4px;
+}
+
+.menu-item span {
+    margin: 8px;
 }
 
 button {
     margin: 2px;
 }
 
+.img-div {
+    text-align: center;
+    margin: 10px;
+}
+
 .header-buttons {
     text-align: right;
+    margin: 10px 0px;
 }
+
