@@ -305,3 +305,35 @@ a {
 .language {
   font-size: small;
 }
+
+.cursor {
+    cursor: pointer;
+}
+
+.pagination>li>a {
+     color: #bbb;
+     background-color: #333;
+     border-color: white;
+     cursor: pointer;
+ }
+
+.pagination>li>a:hover {
+    color: white;
+    background-color: #333;
+    border-color: white;
+    cursor: pointer;
+}
+
+.pagination>.active>a {
+    color: #333;
+    background-color: #bbb;
+    border-color: white;
+    cursor: default;
+}
+
+.pagination>.active>a:hover {
+    color: #333;
+    background-color: #bbb;
+    border-color: white;
+    cursor: default;
+}
