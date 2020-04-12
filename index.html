@@ -1,234 +1,155 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
-    <style>
-      body, html {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size:14px;
-      }
-
-      .app {
-        padding: 4px;
-        text-align: center;
-      }
-
-      .search-panel {
-        margin-bottom: 10px;
-      }
-
-      .results-panel {
-        text-align: center;
-        display: inline-block;
-      }
-
-      .search-input {
-        max-width: 400px;
-      }
-
-      .search-result-row {
-        padding: 10px;
-      }
-
-      .search-result-url {
-        text-align: left;
-      }
-
-      .search-result-comment {
-        text-align: justify;
-        margin-bottom: 2px;
-      }
-
-      .search-result-tags {
-        margin-top: 6px;
-        text-align: left;
-      }
-
-      .search-result-tag {
-        margin: 2px;
-        border-radius: 8px;
-        background: #DDDDDD;
-        padding: 4px;
-        cursor: pointer;
-      }
-    </style>
-
-  </head>
+  <title>Andrey Butov</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+<meta name="generator" content="Hexo 4.1.0"></head>
 
   <body>
-    <div class="app">
-      <h3>
-        Useful links
-      </h3>
-      <div class="search-panel">
-        <label for="search-input">Search</label>
-        <input id="search-input"
-               type="text"
-               class="search-input"
-               placeholder="Start typing to search..."
-               oninput="onSearchInputChanged()"
-        />
+  <div class="container">
+  <header>
+    <div class="name-wrapper">
+      <div id="fullname" class="title">
+        Andrey Butov
       </div>
-      <div id="results-panel"
-           class="results-panel">
+      <div id="jobtitle" class="sub-title">
+        Lead engineer
       </div>
     </div>
-    <script>
-      const searchInput = document.getElementById("search-input")
-      const resultsPanel = document.getElementById("results-panel")
-      let text = ""
-      const links = createLinks()
-      redraw(links)
+    <div id="contact" class="contact">
+      
+      <div class="contact-item">
+        <a href="https://github.com/abtv" target="_blank" rel="noopener">
+        <i class="fa fa-github aria-hidden="true></i> https://github.com/abtv
+        </a>
+      </div>
 
-      function onSearchInputChanged(arg) {
-        const { value: newText } = searchInput
-        if (text === newText ) {
-          return
-        }
-        text = newText
-        redraw(search(text))
-      }
+      <div class="contact-item">
+        <a href="https://github.com/abtv/dotfiles" target="_blank" rel="noopener">
+        <i class="fa fa-github aria-hidden="true></i> https://github.com/abtv/dotfiles
+        </a>
+      </div>
+      
+    </div>
+  </header>
 
-      function search(text) {
-        const words = getWords(text)
-        return links.filter(link => hasWords({ link, words }))
+  <section>
+    <div class="section-title">
+      Stack
+    </div>
+    <div class="section-content">
 
-        function getWords(text) {
-          const wordPattern = /\w+/g
-          const words = text.toLowerCase().match(wordPattern) || []
-          return words.map(word => word.toLowerCase())
-        }
+      <div class="block">
+        <div class="block-title">
+          Notion, Slack
+        </div>
+        <div class="block-subtitle">
+          Productivity
+        </div>
+      </div>
 
-        function hasWords({ link, words }) {
-          const name = link.name.toLowerCase()
-          const comment = link.comment.toLowerCase()
-          const tags = link.tags.map(tag => tag.toLowerCase())
-          return words.every(hasWord)
+      <div class="block">
+        <div class="block-title">
+          NeoVim, Tmux, Alacritty, Git
+        </div>
+        <div class="block-subtitle">
+          Development
+        </div>
+      </div>
+      
+      <div class="block">
+        <div class="block-title">
+          Node.js, GraphQL, Redis, Postgres, AWS
+        </div>
+        <div class="block-subtitle">
+          Backend
+        </div>
+      </div>
+      
+      <div class="block">
+        <div class="block-title">
+          Vue.js, Nuxt.js, Storybook, Cloudfront
+        </div>
+        <div class="block-subtitle">
+          Frontend
+        </div>
+      </div>
 
-          function hasWord(word) {
-            return name.includes(word) || comment.includes(word) || tags.some(tag => tag.includes(word))
-          }
-        }
-      }
+      <div class="block">
+        <div class="block-title">
+          Jest, TestCafe, CircleCI
+        </div>
+        <div class="block-subtitle">
+          Testing
+        </div>
+      </div>
+      
+    </div>
+  </section>
 
-      function redraw(links) {
-        if (links.length === 0) {
-          resultsPanel.innerHTML = `<div>No relevant links.</div>`
-          return
-        }
-        const elements = links.map(link => createElement(link))
-        resultsPanel.innerHTML = `<div>${elements.join("")}</div>`
+  <section>
+    <div class="section-title">
+      Management
+    </div>
+    <div class="section-content">
+      
+      <div class="block">
+        <div class="block-title">
+          <a href="https://www.amazon.com/High-Output-Management-Andrew-Grove/dp/0679762884" target="_blank">High Output Management</a>
+        </div>
+        <div class="block-subtitle">
+          What management is
+        </div>
+      </div>
+      
+    </div>
+  </section>
 
-        function createElement({ name, url, comment, tags }) {
-          const tagElements = tags.filter(tag => tag)
-            .map(tag => `<span class="search-result-tag" onclick="setSearchText(this.innerText)">${tag}</span>`)
-          return `<div class="search-result-row">
-<div class="search-result-url"><a href="${url}" target="_blank">${name || ""}</a></div>
-<div class="search-result-comment">${comment || ""}</div>
-<div class="search-result-tags">${tagElements.join("")}</div>
-</div>`
-        }
-      }
+  <section>
+    <div class="section-title">
+      Engineering
+    </div>
+    <div class="section-content">
+       
+      <div class="block">
+        <div class="block-title">
+          <a href="https://github.com/ryanmcdermott/clean-code-javascript" target="_blank">Clean code in JavaScript</a>
+        </div>
+        <div class="block-subtitle">
+          How to write maintainable code in JavaScript
+        </div>
+      </div>
 
-      function setSearchText(text) {
-        if (searchInput.value === text) {
-          searchInput.value = ""
-        } else {
-          searchInput.value = text
-        }
-        onSearchInputChanged()
-      }
+      <div class="block">
+        <div class="block-title">
+          <a href="https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook/dp/B07LCM8RG2" target="_blank">Refactoring (Fowler)</a>
+        </div>
+        <div class="block-subtitle">
+          Code smells and refactoring techniques
+        </div>
+      </div>
 
-      function createLinks() {
-        return [{
-          name: "Authentication in SPA (ReactJS and VueJS) the right way",
-          comment: "",
-          url: "https://medium.com/@jcbaey/authentication-in-spa-reactjs-and-vuejs-the-right-way-e4a9ac5cd9a3",
-          tags: ["advanced", "security", "http", "cookie"]
-        }, {
-          name: "HTTP 1.1 protocol (RFC 7230)",
-          comment: "",
-          url: "https://tools.ietf.org/html/rfc7230",
-          tags: ["advanced", "http"]
-        }, {
-          name: "HTTP State Management Mechanism (RFC 6265)",
-          comment: "",
-          url: "https://tools.ietf.org/html/rfc6265",
-          tags: ["advanced", "http", "cookie"]
-        }, {
-          name: "SameSite cookies explained",
-          comment: "Learn the difference between None, Lax and Strict values.",
-          url: "https://web.dev/samesite-cookies-explained",
-          tags: ["advanced", "security", "http", "cookie"]
-        }, {
-          name: "SameSite",
-          comment: "SameSite values succinctly.",
-          url: "https://www.owasp.org/index.php/SameSite",
-          tags: ["advanced", "security", "http", "cookie"]
-        }, {
-          name: "thoughtbot's Git Flow",
-          comment: "A useful Git flow model.",
-          url: "https://thoughtbot.com/upcase/videos/git-thoughtbot-git-flow",
-          tags: ["advanced", "git"]
-        }, {
-          name: "Что такое DNS",
-          comment: "",
-          url: "https://guides.hexlet.io/dns",
-          tags: ["advanced", "dns"]
-        }, {
-          name: "Архитектура и ООП",
-          comment: "Основы дизайна.",
-          url: "https://ru.hexlet.io/blog/posts/arhitektura-i-oop",
-          tags: ["medium", "design"]
-        }, {
-          name: "Что такое MVC: рассказываем простыми словами",
-          comment: "Основы дизайна.",
-          url: "https://ru.hexlet.io/blog/posts/chto-takoe-mvc-rasskazyvaem-prostymi-slovami",
-          tags: ["medium", "design"]
-        }, {
-          name: "Clean Code concepts adapted for JavaScript",
-          comment: "Основы написания поддерживаемого кода.",
-          url: "https://github.com/ryanmcdermott/clean-code-javascript",
-          tags: ["medium", "clean code"]
-        }, {
-          name: "Совершенный код: Проектирование функций",
-          comment: "Основы написания поддерживаемого кода.",
-          url: "https://ru.hexlet.io/blog/posts/sovershennyy-kod-proektirovanie-funktsiy",
-          tags: ["medium", "clean code"]
-        }, {
-          name: "Изучите необходимый минимум Linux, чтобы быть продуктивным",
-          comment: "",
-          url: "https://ru.hexlet.io/blog/posts/basic-linux-productivity",
-          tags: ["medium", "linux"]
-        }, {
-          name: "Как научиться слепой печати",
-          comment: "",
-          url: "https://guides.hexlet.io/typing",
-          tags: ["medium"]
-        }, {
-          name: "Что такое SSH",
-          comment: "Прочитай статью, если тебе нужно зайти на сервер с Linux.",
-          url: "https://guides.hexlet.io/ssh",
-          tags: ["basics", "security", "linux"]
-        }, {
-          name: "An introduction to Git: what it is, and how to use it",
-          comment: "Read it if you've never used Git before.",
-          url: "https://www.freecodecamp.org/news/what-is-git-and-how-to-use-it-c341b049ae61",
-          tags: ["basics", "git"]
-        }, {
-          name: "Git Feature Branch Workflow",
-          comment: "Explains what feature branch and pull request is.",
-          url: "https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow",
-          tags: ["basics", "git"]
-        }]
-      }
-    </script>
+      <div class="block">
+        <div class="block-title">
+          <a href="https://www.amazon.com/Practical-Vim-Thought-Pragmatic-Programmers/dp/1934356980" target="_blank">Practical Vim</a>
+        </div>
+        <div class="block-subtitle">
+          Vim basics
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <footer>
+  <a href="https://github.com/abtv" target="_blank" rel="noopener">Andrey Butov</a> 2014-2020</span>
+</footer>
+
   </body>
 </html>
+
