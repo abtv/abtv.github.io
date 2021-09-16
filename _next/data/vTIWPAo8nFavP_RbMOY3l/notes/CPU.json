@@ -1,0 +1,1 @@
+{"pageProps":{"title":"CPU","content":"#### CPU can perform 3 types of operations:\n1. Read an instruction from memory.\n2. Run an instruction (like an addition).\n3. Write to memory.\n\n#### Linux\n\"cat /proc/cpuinfo\" shows CPU model.\n\n#### Related notes\n- [Engineering &rarr;](/notes/Engineering)\n- [Operating system &rarr;](/notes/Operating%20system)"},"__N_SSG":true}

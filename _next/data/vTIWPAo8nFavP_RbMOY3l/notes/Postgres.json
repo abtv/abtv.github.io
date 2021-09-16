@@ -1,0 +1,1 @@
+{"pageProps":{"title":"Postgres","content":"TODO\n\n### Standby mode\n- Hot standby: a replica accepts requests from clients.\n- Warm standby: a replica does NOT accept requests from clients.\n\n#### Related notes\n- [Engineering &rarr;](/notes/Engineering)\n- [Replication &rarr;](/notes/Replication)"},"__N_SSG":true}
