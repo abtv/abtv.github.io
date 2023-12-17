@@ -1,5 +1,44 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>Postgres</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="https://abtv.github.io/_next/static/css/910f3cf9200776dc6138.css" as="style"/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/910f3cf9200776dc6138.css" data-n-g=""/><link rel="preload" href="https://abtv.github.io/_next/static/css/065d9f208d7ce6a4c5de.css" as="style"/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/065d9f208d7ce6a4c5de.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="https://abtv.github.io/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"></script><script src="https://abtv.github.io/_next/static/chunks/webpack-ea2473d7256b97f36886.js" defer=""></script><script src="https://abtv.github.io/_next/static/chunks/framework-0441fae7fd130f37dee1.js" defer=""></script><script src="https://abtv.github.io/_next/static/chunks/main-d1e3ce7bd5cd46c1581b.js" defer=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/_app-68998cd3c2087b94033f.js" defer=""></script><script src="https://abtv.github.io/_next/static/chunks/832-1d93ef3dd096bfa087f2.js" defer=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/notes/%5Bid%5D-2f6f3e593fa1668a4ab5.js" defer=""></script><script src="https://abtv.github.io/_next/static/Qj1QvXwo3TQ2FyXdUv3zI/_buildManifest.js" defer=""></script><script src="https://abtv.github.io/_next/static/Qj1QvXwo3TQ2FyXdUv3zI/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="page-wrapper"><div class="page-content"><div class="Post_article__f3v0Q"><div class="Post_header__2s4s1"><a href="/">← Main page</a></div><div class="Post_header__2s4s1"><h2>Postgres</h2></div><main class="Post_main__2fGnD"><div class="Post_grid__1uhVO"><div class="note-wrapper"><h3>Standby mode</h3>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Postgres</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="https://abtv.github.io/_next/static/css/a1fbee3691b148f2.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/a1fbee3691b148f2.css" crossorigin="" data-n-g=""/><link rel="preload" href="https://abtv.github.io/_next/static/css/a03d659508f3afe9.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/a03d659508f3afe9.css" crossorigin="" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="https://abtv.github.io/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="https://abtv.github.io/_next/static/chunks/webpack-47782a12e0395abb.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/framework-66d32731bdd20e83.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/main-bac2f07e2c919777.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/_app-1b08a80b16427f14.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/996-2621915a071d1e63.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/571-da704684b252df24.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/notes/%5Bid%5D-c6b099223edb2d8a.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/cXf-3M40OjuLZikfbit8L/_buildManifest.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/cXf-3M40OjuLZikfbit8L/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="page-wrapper"><div class="page-content"><div class="Post_article__R4DND"><div class="Post_header__RxYh4"><a href="/">← Main page</a></div><div class="Post_header__RxYh4"><h2>Postgres</h2></div><main class="Post_main__X4Tic"><div class="Post_grid__Qmbf3"><div class="note-wrapper"><h3>Show which queries use the most resources</h3>
+<pre><code class="language-sql">select total_exec_time,
+	     mean_exec_time as avg_ms,
+	     calls,
+	     query
+from pg_stat_statements
+order by mean_exec_time desc
+limit 10;
+</code></pre>
+<h3>Show table sizes</h3>
+<pre><code class="language-sql">select relname as relation,
+       pg_size_pretty (
+         pg_total_relation_size (c .oid)
+       ) as total_size
+from pg_class c
+left join pg_namespace n ON (n.oid = c.relnamespace)
+where nspname not in (
+        &#x27;pg_catalog&#x27;,
+        &#x27;information_schema&#x27;
+      )
+  and c.relkind &lt;&gt; &#x27;i&#x27;
+  and nspname !~ &#x27;^pg_toast&#x27;
+  order by pg_total_relation_size (c.oid) desc
+</code></pre>
+<h3>Select for update</h3>
+<p>May be useful when we need to implement concurrent updates.</p>
+<pre><code class="language-sql">select *
+from table_name
+where condition
+for update;
+</code></pre>
+<h3>Select for update skip locked</h3>
+<p>May be useful when we need to implement concurrent updates but we don&#x27;t want to wait.</p>
+<pre><code class="language-sql">select *
+from table_name
+where condition
+for update
+skip locked;
+</code></pre>
+<h3>Standby mode</h3>
 <ul>
 <li>Hot standby: a replica accepts requests from clients.</li>
 <li>Warm standby: a replica does NOT accept requests from clients.</li>
-</ul></div></div></main></div></div><footer class="page-footer"><a href="/">Andrey Butov 2014-2022</a></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"title":"Postgres","content":"### Standby mode\n- Hot standby: a replica accepts requests from clients.\n- Warm standby: a replica does NOT accept requests from clients.\n"},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"Postgres"},"buildId":"Qj1QvXwo3TQ2FyXdUv3zI","assetPrefix":"https://abtv.github.io","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
+</ul></div></div></main></div></div><footer class="page-footer">Last updated in 2023</footer></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"title":"Postgres","content":"### Show which queries use the most resources\n```sql\nselect total_exec_time,\n\t     mean_exec_time as avg_ms,\n\t     calls,\n\t     query\nfrom pg_stat_statements\norder by mean_exec_time desc\nlimit 10;\n```\n\n### Show table sizes\n```sql\nselect relname as relation,\n       pg_size_pretty (\n         pg_total_relation_size (c .oid)\n       ) as total_size\nfrom pg_class c\nleft join pg_namespace n ON (n.oid = c.relnamespace)\nwhere nspname not in (\n        'pg_catalog',\n        'information_schema'\n      )\n  and c.relkind \u003c\u003e 'i'\n  and nspname !~ '^pg_toast'\n  order by pg_total_relation_size (c.oid) desc\n```\n\n### Select for update\nMay be useful when we need to implement concurrent updates.\n```sql\nselect *\nfrom table_name\nwhere condition\nfor update;\n```\n\n### Select for update skip locked\nMay be useful when we need to implement concurrent updates but we don't want to wait.\n\n```sql\nselect *\nfrom table_name\nwhere condition\nfor update\nskip locked;\n```\n\n### Standby mode\n- Hot standby: a replica accepts requests from clients.\n- Warm standby: a replica does NOT accept requests from clients.\n"},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"Postgres"},"buildId":"cXf-3M40OjuLZikfbit8L","assetPrefix":"https://abtv.github.io","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
