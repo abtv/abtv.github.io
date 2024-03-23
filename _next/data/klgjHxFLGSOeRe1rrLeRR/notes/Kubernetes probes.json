@@ -1,0 +1,1 @@
+{"pageProps":{"title":"Kubernetes probes","content":"### Liveness probe\nLiveness probe checks if a pod is working: if not then Kubernetes restarts the pod.\n\n### Readiness probe\nReadiness probe checks if a pod is able to serve requests: if not then Kubernetes will not send requests to the service. Pod can accept traffic only if all containers are ready.\n"},"__N_SSG":true}

@@ -1,0 +1,56 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Vim</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="https://abtv.github.io/_next/static/css/a1fbee3691b148f2.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/a1fbee3691b148f2.css" crossorigin="" data-n-g=""/><link rel="preload" href="https://abtv.github.io/_next/static/css/a03d659508f3afe9.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/a03d659508f3afe9.css" crossorigin="" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="https://abtv.github.io/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="https://abtv.github.io/_next/static/chunks/webpack-47782a12e0395abb.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/framework-66d32731bdd20e83.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/main-bac2f07e2c919777.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/_app-1b08a80b16427f14.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/996-2621915a071d1e63.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/26-706c5feb84bd19d9.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/notes/%5Bid%5D-5ba99a388704bc7e.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/klgjHxFLGSOeRe1rrLeRR/_buildManifest.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/klgjHxFLGSOeRe1rrLeRR/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="page-wrapper"><div class="page-content"><div class="Post_article__R4DND"><div class="Post_header__RxYh4"><a href="/">← Main page</a></div><div class="Post_header__RxYh4"><h2>Vim</h2></div><main class="Post_main__X4Tic"><div class="Post_grid__Qmbf3"><div class="note-wrapper"><h3>Movements</h3>
+<ul>
+<li>gg - go to the beginning of file</li>
+<li>G - to to the end of file</li>
+<li>:30 - go to the line #30</li>
+<li>0 - go to the beginning of line</li>
+<li>^ - go to the beginning of line (first not space character)</li>
+<li>$ - go to the end of line</li>
+<li>w or W - move to next word</li>
+<li>b or B - move to previous word</li>
+<li>H - move to the top of the screen</li>
+<li>M - move to the middle of the screen</li>
+<li>L - move to the bottom of the screen</li>
+<li>{ - jump to the previous empty line</li>
+<li>} - jump to the next empty line</li>
+<li>f then letter - jumps to letter forward</li>
+<li>F then letter - jumps to letter backward</li>
+<li>t and T do the same, but they stop before the character</li>
+<li>% - go to matching parentheses</li>
+<li>* - finds the word under cursor forward</li>
+<li># - finds the word under cursor backward</li>
+</ul>
+<h3>Edit</h3>
+<ul>
+<li>i - insert mode before current cursor position</li>
+<li>I - insert mode in the beginning of line</li>
+<li>a - insert mode after current cursor position</li>
+<li>A - insert mode at the end of line</li>
+<li>R - replace mode</li>
+<li>r - replaces one character without entering replace mode</li>
+<li>o - insert line after current line</li>
+<li>O - insert line before current line</li>
+<li>x - removes a symbol under cursor (like delete), 3x - removes 3 symbols to the right (current cursor position is included)</li>
+<li>X - removes a symbol before cursor (like backspace), 3X - removes 3 symbols to the left (current cursor is NOT included)</li>
+<li>u - undo</li>
+<li>Ctrl+r - redo</li>
+<li>dw - delete word forward</li>
+<li>db - delete word backward
+d3b or 3db - delete 3 words backward</li>
+<li>. - repeats the previous command</li>
+<li>v - enters visual mode (you can use w, e, hjkl for movements, then you can press d for deleting or y for copying)</li>
+<li>yy - copy line</li>
+<li>p - put</li>
+</ul>
+<h3>Search</h3>
+<ul>
+<li>/phrase - searches phrase forward, n - continue search forward, N - continue search backward</li>
+<li>?phrase - searches phrase backward, n - continue search backward, N - continue search forward</li>
+</ul>
+<h3>Miscellaneous</h3>
+<ul>
+<li>:syntax on - switches syntax on</li>
+<li>:syntax off - switches syntax off</li>
+<li>:set number - shows line numbers</li>
+<li>:set nonumber - disables line numbers</li>
+</ul></div></div></main></div></div><footer class="page-footer">Last updated in 2024</footer></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"title":"Vim","content":"### Movements\n* gg - go to the beginning of file\n* G - to to the end of file\n* :30 - go to the line #30\n* 0 - go to the beginning of line\n* ^ - go to the beginning of line (first not space character)\n* $ - go to the end of line\n* w or W - move to next word\n* b or B - move to previous word\n* H - move to the top of the screen\n* M - move to the middle of the screen\n* L - move to the bottom of the screen\n* { - jump to the previous empty line\n* } - jump to the next empty line\n* f then letter - jumps to letter forward\n* F then letter - jumps to letter backward\n* t and T do the same, but they stop before the character\n* % - go to matching parentheses\n* \\* - finds the word under cursor forward\n* \\# - finds the word under cursor backward\n\n### Edit\n* i - insert mode before current cursor position\n* I - insert mode in the beginning of line\n* a - insert mode after current cursor position\n* A - insert mode at the end of line\n* R - replace mode\n* r - replaces one character without entering replace mode\n* o - insert line after current line\n* O - insert line before current line\n* x - removes a symbol under cursor (like delete), 3x - removes 3 symbols to the right (current cursor position is included)\n* X - removes a symbol before cursor (like backspace), 3X - removes 3 symbols to the left (current cursor is NOT included)\n* u - undo\n* Ctrl+r - redo\n* dw - delete word forward\n* db - delete word backward\nd3b or 3db - delete 3 words backward\n* . - repeats the previous command\n* v - enters visual mode (you can use w, e, hjkl for movements, then you can press d for deleting or y for copying)\n* yy - copy line\n* p - put\n\n### Search\n* /phrase - searches phrase forward, n - continue search forward, N - continue search backward\n* ?phrase - searches phrase backward, n - continue search backward, N - continue search forward\n\n### Miscellaneous\n* :syntax on - switches syntax on\n* :syntax off - switches syntax off\n* :set number - shows line numbers\n* :set nonumber - disables line numbers\n"},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"Vim"},"buildId":"klgjHxFLGSOeRe1rrLeRR","assetPrefix":"https://abtv.github.io","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
