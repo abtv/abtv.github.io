@@ -1,0 +1,81 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Kubernetes</title><link rel="icon" href="/favicon.ico"/><meta name="next-head-count" content="4"/><link rel="preload" href="https://abtv.github.io/_next/static/css/8b4edf1656ab0439.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/8b4edf1656ab0439.css" crossorigin="" data-n-g=""/><link rel="preload" href="https://abtv.github.io/_next/static/css/e7acb73e81b3197c.css" as="style" crossorigin=""/><link rel="stylesheet" href="https://abtv.github.io/_next/static/css/e7acb73e81b3197c.css" crossorigin="" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" crossorigin="" nomodule="" src="https://abtv.github.io/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="https://abtv.github.io/_next/static/chunks/webpack-47782a12e0395abb.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/framework-66d32731bdd20e83.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/main-bac2f07e2c919777.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/_app-1b08a80b16427f14.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/996-2621915a071d1e63.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/26-706c5feb84bd19d9.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/chunks/pages/notes/%5Bid%5D-e848caebef8c2b63.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/1O6pcce7bVvUkckbPGMPK/_buildManifest.js" defer="" crossorigin=""></script><script src="https://abtv.github.io/_next/static/1O6pcce7bVvUkckbPGMPK/_ssgManifest.js" defer="" crossorigin=""></script></head><body><div id="__next"><div class="page-wrapper"><div class="page-content"><div class="Post_article__R4DND"><div class="Post_header__RxYh4"><a href="/">← Main page</a></div><div class="Post_header__RxYh4"><h2>Kubernetes</h2></div><main class="Post_main__X4Tic"><button class="btn">Hide details</button><div class="Post_grid__Qmbf3"><div class="note-wrapper"><h3>1. What Kubernetes is</h3>
+<p>Kubernetes is a platform which allows to run and manage containerized applications.</p>
+<h3>2. Kubernetes concepts</h3>
+<h4>Annotation</h4>
+<p>Allows to store addition information with a Kubernetes object; can have a big size.</p>
+<h4>ConfigMap</h4>
+<p>Stores environment variables.</p>
+<h4>CronJob</h4>
+<p>Used for background tasks run on time; under different conditions may run 0, 1 or more than 1 time.</p>
+<h4>DaemonSet</h4>
+<p>Runs a copy of a pod on each node; usually used for logging and metric collection.</p>
+<h4>Deployment</h4>
+<p>Updates a replica set or a pod; implements rolling updates and rolbacks.</p>
+<h4>Job</h4>
+<p>Creates one or more pods and ensures they are successfully terminated after execution; can restart if it fails.</p>
+<h4>HorizontalPodAutoscaler</h4>
+<p>Scales deployment or replica set basing on CPU usage or other metrics.</p>
+<h4>Ingress</h4>
+<p>Is a router that accepts incoming traffic and maps URLs to services; can implement TLS termination.</p>
+<h4>Label</h4>
+<p>Are key-value pairs that are used to identify Kubernetes objects.</p>
+<h4>Name</h4>
+<p>Every object in Kubernetes has a human-readable name and unique id (UID).</p>
+<h4>Namespace</h4>
+<p>Allow to organize a set of Kubernetes resources inside a Kubernetes cluster into a virtual cluster; nodes and persistent volumes doesn&#x27;t belong to a namespace.</p>
+<h4>Pod</h4>
+<p>Runs one or more containers with the same IP Address.</p>
+<h4>ReplicaSet</h4>
+<p>Allows to run multiple copies of a pod for higher availability.</p>
+<h4>Secret</h4>
+<p>Used to store backend credentials.</p>
+<h4>Service</h4>
+<p>Allows to address a collection of pods for network communication.</p>
+<h4>Volume</h4>
+<p>Is a directory that is accessible to all containers in a pod.</p>
+<h4>Liveness probe</h4>
+<p>Liveness probe checks if a pod is working: if not then Kubernetes restarts the pod.</p>
+<h4>Readiness probe</h4>
+<p>Readiness probe checks if a pod is able to serve requests: if not then Kubernetes will not send requests to the service. Pod can accept traffic only if all containers are ready.</p>
+<h3>3. Kubernetes commands</h3>
+<h4>Useful aliases</h4>
+<p>kp=&#x27;kubectl -n my-namespace --kubeconfig ~/.kube/config-prod&#x27;</p>
+<p>kp-port-forward=&#x27;kp port-forward svc/elasticsearch-master 9200:9200&#x27;</p>
+<h4>Show pods in all namespaces</h4>
+<p>kp get pod -A</p>
+<h4>Show services</h4>
+<p>kp get service</p>
+<h4>Show deployments</h4>
+<p>kp get deployment</p>
+<h4>Show nodes</h4>
+<p>kp get node</p>
+<h4>Show persistence volume claims</h4>
+<p>kp get pvc</p>
+<h4>Run shell in a pod container</h4>
+<p>kp exec -ti pod-name -c container-name -- /bin/bash</p>
+<h4>Copy a file from a pod</h4>
+<p>kp cp -c container-name pod-name:/srv/app/file_name.log file_name.log</p>
+<h4>Double dash in a command</h4>
+<p>The double dash ( -- ) in kubectl command separates the arguments you want to pass to the command from the kubectl arguments.</p>
+<h3>4. Kubernetes service types</h3>
+<h4>ClusterIP</h4>
+<p>Default service type; exposes service by IP inside Kubernetes cluster.</p>
+<h4>NodePort</h4>
+<p>Exposes service externally using each node IP address and a predefined port.</p>
+<h4>LoadBalancer</h4>
+<p>Exposes service externally with a load balancer per one service.</p>
+<h4>ExternalName</h4>
+<p>Works like a proxy for an external service by DNS name.</p>
+<h3>5. Kubernetes volume types</h3>
+<h4>EmptyDir</h4>
+<p>Not persistent (when pod is restarted its data is lost), starts empty and allows to share folder between containers of the same pod (when explicitly mounted).</p>
+<h4>GitRepo</h4>
+<p>Not persistent, starts with data from a public Git repo and allows to share folder between containers of the same pod</p>
+<h4>Secret</h4>
+<p>In-memory directory to pass credentials to pods.</p>
+<h4>HostPath</h4>
+<p>Persistent on a node, usually is used with DaemonSet.</p>
+<h4>PersistentVolume</h4>
+<p>Persistent, created by admin with a given technology (like GCEPersistentDisk), capacity and access modes.</p>
+<h4>PersistentVolumeClaim</h4>
+<p>Abstracts away from a given technology by pointing to PersistentVolume.</p></div></div></main></div></div><footer class="page-footer">Last updated in 2024</footer></div></div><script id="__NEXT_DATA__" type="application/json" crossorigin="">{"props":{"pageProps":{"title":"Kubernetes","content":"### 1. What Kubernetes is\n  Kubernetes is a platform which allows to run and manage containerized applications.\n\n### 2. Kubernetes concepts\n#### Annotation\n  Allows to store addition information with a Kubernetes object; can have a big size.\n\n#### ConfigMap\n  Stores environment variables.\n\n#### CronJob\n  Used for background tasks run on time; under different conditions may run 0, 1 or more than 1 time.\n\n#### DaemonSet\n  Runs a copy of a pod on each node; usually used for logging and metric collection.\n\n#### Deployment\n  Updates a replica set or a pod; implements rolling updates and rolbacks.\n\n#### Job\n  Creates one or more pods and ensures they are successfully terminated after execution; can restart if it fails.\n\n#### HorizontalPodAutoscaler\n  Scales deployment or replica set basing on CPU usage or other metrics.\n\n#### Ingress\n  Is a router that accepts incoming traffic and maps URLs to services; can implement TLS termination.\n\n#### Label\n  Are key-value pairs that are used to identify Kubernetes objects.\n\n#### Name\n  Every object in Kubernetes has a human-readable name and unique id (UID).\n\n#### Namespace\n  Allow to organize a set of Kubernetes resources inside a Kubernetes cluster into a virtual cluster; nodes and persistent volumes doesn't belong to a namespace.\n\n#### Pod\n  Runs one or more containers with the same IP Address.\n\n#### ReplicaSet\n  Allows to run multiple copies of a pod for higher availability.\n\n#### Secret\n  Used to store backend credentials.\n\n#### Service\n  Allows to address a collection of pods for network communication.\n\n#### Volume\n  Is a directory that is accessible to all containers in a pod.\n\n#### Liveness probe\nLiveness probe checks if a pod is working: if not then Kubernetes restarts the pod.\n\n#### Readiness probe\nReadiness probe checks if a pod is able to serve requests: if not then Kubernetes will not send requests to the service. Pod can accept traffic only if all containers are ready.\n\n### 3. Kubernetes commands\n#### Useful aliases\nkp='kubectl -n my-namespace --kubeconfig ~/.kube/config-prod'\n\nkp-port-forward='kp port-forward svc/elasticsearch-master 9200:9200'\n\n#### Show pods in all namespaces\nkp get pod -A\n\n#### Show services\nkp get service\n\n#### Show deployments\nkp get deployment\n\n#### Show nodes\nkp get node\n\n#### Show persistence volume claims\nkp get pvc\n\n#### Run shell in a pod container\nkp exec -ti pod-name -c container-name -- /bin/bash\n\n#### Copy a file from a pod\nkp cp -c container-name pod-name:/srv/app/file_name.log file_name.log\n\n#### Double dash in a command\nThe double dash ( -- ) in kubectl command separates the arguments you want to pass to the command from the kubectl arguments.\n\n### 4. Kubernetes service types\n#### ClusterIP\nDefault service type; exposes service by IP inside Kubernetes cluster.\n\n#### NodePort\nExposes service externally using each node IP address and a predefined port.\n\n#### LoadBalancer\nExposes service externally with a load balancer per one service.\n\n#### ExternalName\nWorks like a proxy for an external service by DNS name.\n\n### 5. Kubernetes volume types\n#### EmptyDir\nNot persistent (when pod is restarted its data is lost), starts empty and allows to share folder between containers of the same pod (when explicitly mounted).\n\n#### GitRepo\nNot persistent, starts with data from a public Git repo and allows to share folder between containers of the same pod\n\n#### Secret\nIn-memory directory to pass credentials to pods.\n\n#### HostPath\nPersistent on a node, usually is used with DaemonSet.\n\n#### PersistentVolume\nPersistent, created by admin with a given technology (like GCEPersistentDisk), capacity and access modes.\n\n#### PersistentVolumeClaim\nAbstracts away from a given technology by pointing to PersistentVolume.\n"},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"Kubernetes"},"buildId":"1O6pcce7bVvUkckbPGMPK","assetPrefix":"https://abtv.github.io","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

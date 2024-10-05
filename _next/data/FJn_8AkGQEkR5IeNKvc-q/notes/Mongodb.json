@@ -1,1 +1,0 @@
-{"pageProps":{"title":"Mongodb","content":"### Count documents\ndb.collection_name.countDocuments({ field_name: true }); \n\n### Get distinct values of a field\ndb.collection_name.distinct('field_name', { another_field_name: true }).sort();\n"},"__N_SSG":true}
